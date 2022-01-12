@@ -66,5 +66,6 @@ class Kernel extends HttpKernel
 
         'auth_owner' => \App\Http\Middleware\AuthOwner::class,
         'auth_admin' => \App\Http\Middleware\AuthAdmin::class,
+        'is_login' => \App\Http\Middleware\IsLogin::class,
     ];
 }

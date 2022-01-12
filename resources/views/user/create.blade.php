@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('content')
-    <form action="/user" method="POST">
+    <form action="/user" method="POST" enctype="multipart/form-data">
         @csrf
         <x-input label="Foto" name="img" type="file" />
         <x-input label="Nama" name="nama" type="text" />
@@ -9,7 +9,7 @@
             <div class="col-md-4">
                 <p class="mb-2">Jenis Kelamin</p>
                 <x-radio label="Laki-Laki" name="gender" value="1" inline="{{ true }}" />
-                <x-radio label="Perempuan" name="gender" value="0" inline="{{ true }}" />
+                <x-radio label="Perempuan" name="gender" value="2" inline="{{ true }}" />
             </div>
             <div class="col-md-4">
                 <x-input label="No Tlp" name="no_tlp" type="text" />
@@ -28,7 +28,7 @@
             </div>
         </div>
         <div class="btn-group">
-            <button type="submit" class="btn btn-sm btn-success">Simpan</button>
+            <button type="submit" class="btn btn-sm btn-success">Tambah</button>
             <a href="/user" class="btn btn-sm btn-danger">Kembali</a>
         </div>
     </form>

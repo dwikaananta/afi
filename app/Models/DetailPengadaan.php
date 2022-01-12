@@ -15,6 +15,6 @@ class DetailPengadaan extends Model
         'tanaman_id',
         'pengadaan_id',
         'qty',
-        'harga_jual',
+        'harga_beli',
     ];
 }

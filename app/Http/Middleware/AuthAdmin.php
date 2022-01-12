@@ -21,6 +21,6 @@ class AuthAdmin
             return $next($request);
         }
 
-        // return redirect('/')->with('danger', 'Harus login terlebih dahulu !');
+        return redirect('/')->with('danger', 'Harus login terlebih dahulu !');
     }
 }

@@ -1,3 +1,15 @@
-<div>
-    <!-- The best way to take care of the future is to take care of the present moment. - Thich Nhat Hanh -->
+<div class="mb-2">
+    @if ($label)
+        <label for="">{{ $label }}</label>
+    @endif
+
+    <select name="{{ $name }}" class="form-select @error($name) is-invalid @enderror">
+        {{ $slot }}
+    </select>
+
+    @error($name)
+        <div class="invalid-feedback">
+            {{ $message }}
+        </div>
+    @enderror
 </div>

@@ -1,5 +1,9 @@
 <?php
 
+use App\Http\Controllers\PengadaanController;
+use App\Http\Controllers\PenjualanController;
+use App\Http\Controllers\SupplierController;
+use App\Http\Controllers\TanamanController;
 use App\Http\Controllers\UserController;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -42,13 +46,17 @@ Route::post('/auth', function(Request $req) {
     ]);
 });
 
-Route::middleware('auth_owner', 'auth_admin')->group(function() {
+Route::middleware('is_login')->group(function() {
 
     Route::get('/dashboard', function(Request $req) {
         return view('dashboard', ['title' => 'Dashboard']);
     });
 
     Route::resource('/user', UserController::class);
+    Route::resource('/tanaman', TanamanController::class);
+    Route::resource('/supplier', SupplierController::class);
+    Route::resource('/pengadaan', PengadaanController::class);
+    Route::resource('/penjualan', PenjualanController::class);
 
     Route::get('/logout', function(Request $req) {
         Auth::logout();

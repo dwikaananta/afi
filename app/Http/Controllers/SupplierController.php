@@ -7,79 +7,78 @@ use Illuminate\Http\Request;
 
 class SupplierController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        //
+        $supplier = Supplier::get();
+
+        return view('supplier.supplier', [
+            'title' => 'Data Supplier',
+            'supplier' => $supplier,
+        ]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        //
+        return view('supplier.create', [
+            'title' => 'Tambah Supplier',
+        ]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    public function store(Request $req)
     {
-        //
+        $data = $req->validate([
+            'nama' => 'required',
+            'email' => 'required|unique:supplier,email',
+            'no_tlp' => 'required',
+            'alamat' => 'required',
+        ]);
+
+        Supplier::create($data);
+
+        return redirect('/supplier')->with('success', 'Berhasil tambah Data Supplier !');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Supplier  $supplier
-     * @return \Illuminate\Http\Response
-     */
     public function show(Supplier $supplier)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Supplier  $supplier
-     * @return \Illuminate\Http\Response
-     */
     public function edit(Supplier $supplier)
     {
-        //
+        return view('supplier.edit', [
+            'title' => 'Ubah Supplier',
+            'supplier' => $supplier,
+        ]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Supplier  $supplier
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Supplier $supplier)
+    public function update(Request $req, Supplier $supplier)
     {
-        //
+        function valEmail($supplier, $req) {
+            if ($supplier->email == $req->email) {
+                return 'required';
+            } else {
+                return 'required|max:150|unique:supplier,email';
+            }
+        }
+
+        $data = $req->validate([
+            'nama' => 'required',
+            'email' => valEmail($supplier, $req),
+            'no_tlp' => 'required',
+            'alamat' => 'required',
+        ]);
+
+        $supplier->update($data);
+
+        return redirect('/supplier')->with('success', 'Berhasil ubah Data Supplier !');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Supplier  $supplier
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Supplier $supplier)
+    public function destroy(Supplier $supplier, Request $req)
     {
-        //
+        // 9 tidak aktif && null aktif
+
+        $supplier->update(['status' => $req->actived ? null : 9]);
+
+        return back()->with('success', 'Berhasil update status Supplier !');
     }
 }
