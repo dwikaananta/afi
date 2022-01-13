@@ -3,83 +3,89 @@
 namespace App\Http\Controllers;
 
 use App\Models\Reject;
+use App\Models\Tanaman;
 use Illuminate\Http\Request;
 
 class RejectController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        //
+        $reject = Reject::with('tanaman')->get();
+
+        return view('reject.reject', [
+            'title' => 'Data Reject',
+            'reject' => $reject,
+        ]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        //
+        return view('reject.create', [
+            'title' => 'Tambah Reject',
+            'tanaman' => Tanaman::orderBy('nama')->get(),
+        ]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    public function store(Request $req)
     {
-        //
+        $req->validate([
+            'tanaman_id' => 'required',
+            'qty' => 'required',
+        ]);
+
+        $tanaman = Tanaman::find($req->tanaman_id);
+
+        $data = [
+            'tanaman_id' => $req->tanaman_id,
+            'qty' => $req->qty,
+            'total' => $tanaman->harga_jual * $req->qty,
+        ];
+
+        Reject::create($data);
+
+        return redirect('/reject')->with('success', 'Berhasil tambah Data Reject !');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Reject  $reject
-     * @return \Illuminate\Http\Response
-     */
     public function show(Reject $reject)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Reject  $reject
-     * @return \Illuminate\Http\Response
-     */
     public function edit(Reject $reject)
     {
-        //
+        return view('reject.edit', [
+            'title' => 'Ubah Reject',
+            'reject' => $reject,
+            'tanaman' => Tanaman::orderBy('nama')->get(),
+        ]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Reject  $reject
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Reject $reject)
+    public function update(Request $req, Reject $reject)
     {
-        //
+        $req->validate([
+            'tanaman_id' => 'required',
+            'qty' => 'required',
+        ]);
+
+        $tanaman = Tanaman::find($req->tanaman_id);
+
+        $data = [
+            'tanaman_id' => $req->tanaman_id,
+            'qty' => $req->qty,
+            'total' => $tanaman->harga_jual * $req->qty,
+        ];
+
+        $reject->update($data);
+
+        return redirect('/reject')->with('success', 'Berhasil ubah Data Reject !');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Reject  $reject
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Reject $reject)
+    public function destroy(Reject $reject, Request $req)
     {
-        //
+        // 9 tidak aktif && null aktif
+
+        $reject->update(['status' => $req->actived ? null : 9]);
+
+        return back()->with('success', 'Berhasil update status Reject !');
     }
 }

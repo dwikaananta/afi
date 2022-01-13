@@ -19,4 +19,14 @@ class Penjualan extends Model
         'no_tlp',
         'total',
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function detail_penjualan()
+    {
+        return $this->hasMany(DetailPenjualan::class);
+    }
 }

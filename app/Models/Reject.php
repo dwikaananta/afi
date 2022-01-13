@@ -17,4 +17,9 @@ class Reject extends Model
         'total',
         'status',
     ];
+
+    public function tanaman()
+    {
+        return $this->belongsTo(Tanaman::class);
+    }
 }

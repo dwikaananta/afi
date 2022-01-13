@@ -17,4 +17,9 @@ class DetailPengadaan extends Model
         'qty',
         'harga_beli',
     ];
+
+    public function tanaman()
+    {
+        return $this->belongsTo(Tanaman::class);
+    }
 }

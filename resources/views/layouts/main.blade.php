@@ -14,6 +14,8 @@
         integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap5.min.css">
 
@@ -36,7 +38,7 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav container d-flex justify-content-between">
                         <li class="nav-item">
-                            <a class="nav-link active" href="#"><i class="fa fa-dashboard me-1"></i>Dashboard</a>
+                            <a class="nav-link active" href="/dashboard?tahun={{ date('Y') }}"><i class="fa fa-dashboard me-1"></i>Dashboard</a>
                         </li>
                         @if (auth()->user()->level == 9)
                             <li class="nav-item">
@@ -58,9 +60,15 @@
                         <li class="nav-item">
                             <a class="nav-link active" href="/reject"><i class="fa fa-times-circle me-1"></i>Reject</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" href="/laporan"><i class="fa fa-flag me-1"></i>Laporan</a>
-                        </li>
+                        @if (auth()->user()->level == 9)
+                            <li class="nav-item dropdown">
+                                <a class="nav-link active dropdown-toggle" id="laporan" data-bs-toggle="dropdown" aria-expanded="false" href="#"><i class="fa fa-flag me-1"></i>Laporan</a>
+                                <ul class="dropdown-menu" aria-labelledby="laporan">
+                                    <li><a class="dropdown-item" href="/laporan-pengadaan">Laporan Pengadaan</a></li>
+                                    <li><a class="dropdown-item" href="/laporan-penjualan">Laporan Penjualan</a></li>
+                                </ul>
+                            </li>
+                        @endif
                         <li class="nav-item">
                             <a class="nav-link active" href="/logout" onclick="return confirm('Yakin logout ?')"><i class="fa fa-sign-out me-1"></i>Logout</a>
                         </li>

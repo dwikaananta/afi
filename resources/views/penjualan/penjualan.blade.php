@@ -29,15 +29,7 @@
                 @if ($p->status == isset($_GET['deleted']))
                     <tr>
                         <td class="text-center">{{ $no ++ }}</td>
-                        <td>
-                            @php
-                                $arr = array_filter($user, fn($s) => $s['id'] == $p->user_id);
-
-                                foreach ($arr as $s) {
-                                    echo $s['nama'];
-                                }
-                            @endphp
-                        </td>
+                        <td>{{ $p->user ? $p->user->nama : '' }}</td>
                         <td>{{ $p->tgl_penjualan }}</td>
                         <td>{{ $p->kode_penjualan }}</td>
                         <td>{{ $p->nama }}</td>
