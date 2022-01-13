@@ -32,8 +32,10 @@ Route::get('/', function() {
 
     if ($user == 0) {
         User::create([
-            'email' => 'mhs@admin.com',
+            'nama' => 'Owner',
+            'email' => 'admin@admin.com',
             'password' => Hash::make('Admin123'),
+            'level' => 9,
         ]);
     }
 
@@ -60,6 +62,7 @@ Route::post('/auth', function(Request $req) {
 Route::middleware('is_login')->group(function() {
 
     Route::get('/dashboard', function(Request $req) {
+
         return view('dashboard', [
             'title' => 'Dashboard',
             'total_tanaman' => Tanaman::count(),
