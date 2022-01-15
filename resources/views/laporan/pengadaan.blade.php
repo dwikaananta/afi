@@ -32,7 +32,7 @@
                         <td>{{ $p->supplier ? $p->supplier->nama : '' }}</td>
                         <td>{{ $p->tgl_pengadaan }}</td>
                         <td>{{ $p->kode_pengadaan }}</td>
-                        <td>Rp {{ rupiah($p->total) }}</td>
+                        <td>{{ rupiah($p->total) }}</td>
                         <td>
                             <a href="/pengadaan-detail/{{ $p->id }}">Detail</a>
                         </td>

@@ -45,8 +45,8 @@
                             {{ $t->kategori == 7 ? 'Decorative plants' : '' }}
                         </td>
                         <td>{{ $t->nama }}</td>
-                        <td>Rp {{ rupiah($t->harga_beli) }}</td>
-                        <td>Rp {{ rupiah($t->harga_jual) }}</td>
+                        <td>{{ rupiah($t->harga_beli) }}</td>
+                        <td>{{ rupiah($t->harga_jual) }}</td>
                         <td>{{ $t->stok }}</td>
                         <td class="text-center" style="width: 10%">
                             <img src="/storage/tanaman/{{ $t->img }}" class="img-fluid" alt="">

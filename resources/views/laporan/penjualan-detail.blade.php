@@ -61,8 +61,8 @@
                         <tr>
                             <td class="text-center">{{ $dp->tanaman ? $dp->tanaman->nama : '' }}</td>
                             <td class="text-center">{{ $dp->qty }} PCS</td>
-                            <td class="text-center">Rp {{ rupiah($dp->harga_jual) }}</td>
-                            <td class="text-center">Rp {{ rupiah($dp->qty * $dp->harga_jual) }}</td>
+                            <td class="text-center">{{ rupiah($dp->harga_jual) }}</td>
+                            <td class="text-center">{{ rupiah($dp->qty * $dp->harga_jual) }}</td>
                         </tr>
                     @endforeach
                 </table>
@@ -72,7 +72,7 @@
 
             <div class="row">
                 <div class="col-6 text-center">Total</div>
-                <div class="col-6 text-center">Rp {{ rupiah($penjualan->total) }}</div>
+                <div class="col-6 text-center">{{ rupiah($penjualan->total) }}</div>
             </div>
         </div>
 

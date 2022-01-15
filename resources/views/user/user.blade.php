@@ -31,14 +31,14 @@
                     <tr>
                         <td class="text-center">{{ $no++ }}</td>
                         <td class="text-center" style="width: 10%">
-                            <img src="/storage/tanaman/{{ $u->img }}" class="img-fluid" alt="">
+                            <img src="/storage/users/{{ $u->img }}" class="img-fluid" alt="">
                         </td>
-                        <td>{{ $u->nama }}</td>
-                        <td>{{ $u->gender == 1 ? 'Laki-Laki' : 'Perempuan' }}</td>
-                        <td>{{ $u->no_tlp }}</td>
-                        <td>{{ $u->email }}</td>
-                        <td>{{ $u->alamat }}</td>
-                        <td>{{ $u->regdate ? date('d-m-Y', strtotime($u->regdate)) : '' }}</td>
+                        <td class="text-nowrap">{{ $u->nama }}</td>
+                        <td class="text-nowrap">{{ $u->gender == 1 ? 'Laki-Laki' : 'Perempuan' }}</td>
+                        <td class="text-nowrap">{{ $u->no_tlp }}</td>
+                        <td class="text-nowrap">{{ $u->email }}</td>
+                        <td class="text-nowrap">{{ $u->alamat }}</td>
+                        <td class="text-nowrap">{{ $u->regdate ? date('d-m-Y', strtotime($u->regdate)) : '' }}</td>
                         <td>
                             @if ($u->status == 9)
                                 <form action="/user/{{ $u->id }}?actived=true" method="POST" class="text-center">

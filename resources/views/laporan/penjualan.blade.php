@@ -34,7 +34,7 @@
                         <td>{{ $p->kode_penjualan }}</td>
                         <td>{{ $p->nama }}</td>
                         <td>{{ $p->no_tlp }}</td>
-                        <td>Rp {{ rupiah($p->total) }}</td>
+                        <td>{{ rupiah($p->total) }}</td>
                         <td>
                             <a href="/penjualan-detail/{{ $p->id }}">Detail</a>
                         </td>
