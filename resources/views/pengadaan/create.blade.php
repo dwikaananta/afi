@@ -2,6 +2,7 @@
 
 @section('content')
     <div id="root"></div>
+    <a href="/pengadaan" class="btn btn-sm btn-danger">Kembali</a>
 @endsection
 
 @section('js')

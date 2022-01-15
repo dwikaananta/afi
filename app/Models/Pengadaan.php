@@ -17,6 +17,7 @@ class Pengadaan extends Model
         'tgl_pengadaan',
         'kode_pengadaan',
         'total',
+        'status',
     ];
 
     public function user()

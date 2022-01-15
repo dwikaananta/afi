@@ -16,6 +16,12 @@
         </x-thead>
         @php
             $no = 1;
+            
+            function rupiah($angka)
+            {
+                $hasil_rupiah = 'Rp ' . number_format($angka, 2, ',', '.');
+                return $hasil_rupiah;
+            }
         @endphp
         <tbody>
             @foreach ($pengadaan as $p)
@@ -26,7 +32,7 @@
                         <td>{{ $p->supplier ? $p->supplier->nama : '' }}</td>
                         <td>{{ $p->tgl_pengadaan }}</td>
                         <td>{{ $p->kode_pengadaan }}</td>
-                        <td>{{ $p->total }}</td>
+                        <td>Rp {{ rupiah($p->total) }}</td>
                         <td>
                             <a href="/pengadaan-detail/{{ $p->id }}">Detail</a>
                         </td>

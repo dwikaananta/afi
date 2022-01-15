@@ -5,7 +5,7 @@
     <div class="row text-end">
         <div class="col">
             <x-btn-add-data url="/pengadaan/create" title="{{ $title }}" />
-            {{-- <x-btn-switch-status url="/pengadaan" title="{{ $title }}" /> --}}
+            <x-btn-switch-status url="/pengadaan" title="{{ $title }}" />
         </div>
     </div>
     <x-table>
@@ -17,11 +17,17 @@
                 <th>Tgl Pengadaan</th>
                 <th>Kode Pengadaan</th>
                 <th>Total</th>
-                {{-- <th></th> --}}
+                <th></th>
             </tr>
         </x-thead>
         @php
             $no = 1;
+
+            function rupiah($angka)
+            {
+                $hasil_rupiah = 'Rp ' . number_format($angka, 2, ',', '.');
+                return $hasil_rupiah;
+            }
         @endphp
         <tbody>
             @foreach ($pengadaan as $p)
@@ -36,15 +42,15 @@
                         </td>
                         <td>{{ date('d-m-Y', strtotime($p->tgl_pengadaan)) }}</td>
                         <td>{{ $p->kode_pengadaan }}</td>
-                        <td>{{ $p->total }}</td>
-                        {{-- <td>
+                        <td>{{ rupiah($p->total) }}</td>
+                        <td>
                             @if ($p->status == 9)
                                 <form action="/pengadaan/{{ $p->id }}?actived=true" method="POST"
                                     class="text-center">
                                     @csrf
                                     @method('DELETE')
-                                    <a href="/pengadaan/{{ $p->id }}/edit" class="btn btn-sm btn-success"><i
-                                            class="fa fa-edit me-1"></i>Ubah</a>
+                                    {{-- <a href="/pengadaan/{{ $p->id }}/edit" class="btn btn-sm btn-success"><i
+                                            class="fa fa-edit me-1"></i>Ubah</a> --}}
                                     <button class="btn btn-sm btn-success"><i
                                             class="fa fa-arrow-up me-1"></i>Aktifkan</button>
                                 </form>
@@ -52,12 +58,12 @@
                                 <form action="/pengadaan/{{ $p->id }}" method="POST" class="text-center">
                                     @csrf
                                     @method('DELETE')
-                                    <a href="/pengadaan/{{ $p->id }}/edit" class="btn btn-sm btn-success"><i
-                                            class="fa fa-edit me-1"></i>Ubah</a>
+                                    {{-- <a href="/pengadaan/{{ $p->id }}/edit" class="btn btn-sm btn-success"><i
+                                            class="fa fa-edit me-1"></i>Ubah</a> --}}
                                     <button class="btn btn-sm btn-danger"><i class="fa fa-arrow-down me-1"></i>Nonaktifkan</button>
                                 </form>
                             @endif
-                        </td> --}}
+                        </td>
                     </tr>
                 @endif
             @endforeach

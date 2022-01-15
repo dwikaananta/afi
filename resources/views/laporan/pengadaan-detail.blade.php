@@ -1,6 +1,13 @@
 @extends('layouts.print')
 
 @section('content')
+    @php
+    function rupiah($angka)
+    {
+        $hasil_rupiah = 'Rp ' . number_format($angka, 2, ',', '.');
+        return $hasil_rupiah;
+    }
+    @endphp
     <div class="container">
         <div class="text-center">
             <h1>Detail Pengadaan</h1>
@@ -42,8 +49,8 @@
                         <tr>
                             <td class="text-center">{{ $dp->tanaman ? $dp->tanaman->nama : '' }}</td>
                             <td class="text-center">{{ $dp->qty }} PCS</td>
-                            <td class="text-center">Rp {{ $dp->harga_beli }}</td>
-                            <td class="text-center">Rp {{ $dp->qty * $dp->harga_beli }}</td>
+                            <td class="text-center">Rp {{ rupiah($dp->harga_beli) }}</td>
+                            <td class="text-center">Rp {{ rupiah($dp->qty * $dp->harga_beli) }}</td>
                         </tr>
                     @endforeach
                 </table>
@@ -53,7 +60,7 @@
 
             <div class="row">
                 <div class="col-6 text-center">Total</div>
-                <div class="col-6 text-center">{{ $pengadaan->total }}</div>
+                <div class="col-6 text-center">Rp {{ rupiah($pengadaan->total) }}</div>
             </div>
         </div>
 

@@ -47,9 +47,18 @@
         <div class="py-3 col-6 text-center" style="background-color: rgba(75, 192, 192, 0.2)">Pengluaran</div>
     </div>
 
-    <div>
+    <div class="mb-4">
         <canvas id="myChart"></canvas>
     </div>
+
+    <div class="text-center">
+        <h3>Kategori Tanaman Paling Laris {{ $_GET['tahun'] }}</h3>
+    </div>
+    <div class="mb-4 w-50 m-auto">
+        <canvas id="myPie"></canvas>
+    </div>
+
+    {{-- // // --}}
 @endsection
 
 
@@ -130,6 +139,43 @@
         const myChart = new Chart(
             document.getElementById('myChart'),
             config
+        );
+
+
+        const data2 = {
+            labels: [
+                'Greenery plants',
+                'Bonsai Plants',
+                'Vines Plants',
+                'Aglaonema Plants',
+                'Taro Plants',
+                'Decorative plants',
+            ],
+            datasets: [{
+                label: 'My First Dataset',
+                data: [
+                    {{ $pie_2 }}, {{ $pie_3 }}, {{ $pie_4 }}, {{ $pie_5 }}, {{ $pie_6 }}, {{ $pie_7 }}
+                ],
+                backgroundColor: [
+                'rgb(255, 99, 132)',
+                'rgb(100, 99, 132)',
+                'rgb(54, 162, 235)',
+                'rgb(100, 162, 235)',
+                'rgb(255, 205, 86)',
+                'rgb(100, 205, 86)',
+                ],
+                hoverOffset: 4
+            }]
+        };
+
+        const config2 = {
+            type: 'doughnut',
+            data: data2,
+        };
+
+        const myPie = new Chart(
+            document.getElementById('myPie'),
+            config2
         );
     </script>
 @endsection

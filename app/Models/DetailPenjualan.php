@@ -22,4 +22,9 @@ class DetailPenjualan extends Model
     {
         return $this->belongsTo(Tanaman::class);
     }
+
+    public function penjualan()
+    {
+        return $this->belongsTo(Penjualan::class);
+    }
 }

@@ -10,7 +10,7 @@ class UserController extends Controller
 {
     public function index()
     {
-        $user = User::whereNull('level')->get();
+        $user = User::whereNull('level')->orderBy('nama')->get();
 
         return view('user.user', [
             'title' => 'Data User',
@@ -28,7 +28,7 @@ class UserController extends Controller
     public function store(Request $req)
     {
         $req->validate([
-            'img' => 'required|mimes:jpg,jpeg,png|max:5000',
+            'img' => 'mimes:jpg,jpeg,png|max:5000',
             'nama' => 'required',
             'gender' => 'required',
             'no_tlp' => 'required|max:20',

@@ -9,7 +9,7 @@ class TanamanController extends Controller
 {
     public function index()
     {
-        $tanaman = Tanaman::get();
+        $tanaman = Tanaman::orderBy('kategori')->orderBy('nama')->get();
 
         return view('tanaman.tanaman', [
             'title' => 'Data Tanaman',

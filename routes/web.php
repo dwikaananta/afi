@@ -6,6 +6,7 @@ use App\Http\Controllers\RejectController;
 use App\Http\Controllers\SupplierController;
 use App\Http\Controllers\TanamanController;
 use App\Http\Controllers\UserController;
+use App\Models\DetailPenjualan;
 use App\Models\Pengadaan;
 use App\Models\Penjualan;
 use App\Models\Reject;
@@ -15,17 +16,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Route;
-
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
 
 Route::get('/', function() {
     $user = User::count();
@@ -93,6 +83,37 @@ Route::middleware('is_login')->group(function() {
             'Pengeluaran_November' => Pengadaan::whereYear('tgl_pengadaan', $_GET['tahun'])->whereMonth('tgl_pengadaan', 11)->count(),
             'Pendapat_Desember' => Penjualan::whereYear('tgl_penjualan', $_GET['tahun'])->whereMonth('tgl_penjualan', 12)->count(),
             'Pengeluaran_Desember' => Pengadaan::whereYear('tgl_pengadaan', $_GET['tahun'])->whereMonth('tgl_pengadaan', 12)->count(),
+
+            'pie_2' => DetailPenjualan::whereHas('tanaman', function($query) {
+                return $query->where('kategori', 2);
+            })->whereHas('penjualan', function($query) {
+                return $query->whereYear('tgl_penjualan', $_GET['tahun']);
+            })->count(),
+            'pie_3' => DetailPenjualan::whereHas('tanaman', function($query) {
+                return $query->where('kategori', 3);
+            })->whereHas('penjualan', function($query) {
+                return $query->whereYear('tgl_penjualan', $_GET['tahun']);
+            })->count(),
+            'pie_4' => DetailPenjualan::whereHas('tanaman', function($query) {
+                return $query->where('kategori', 4);
+            })->whereHas('penjualan', function($query) {
+                return $query->whereYear('tgl_penjualan', $_GET['tahun']);
+            })->count(),
+            'pie_5' => DetailPenjualan::whereHas('tanaman', function($query) {
+                return $query->where('kategori', 5);
+            })->whereHas('penjualan', function($query) {
+                return $query->whereYear('tgl_penjualan', $_GET['tahun']);
+            })->count(),
+            'pie_6' => DetailPenjualan::whereHas('tanaman', function($query) {
+                return $query->where('kategori', 6);
+            })->whereHas('penjualan', function($query) {
+                return $query->whereYear('tgl_penjualan', $_GET['tahun']);
+            })->count(),
+            'pie_7' => DetailPenjualan::whereHas('tanaman', function($query) {
+                return $query->where('kategori', 7);
+            })->whereHas('penjualan', function($query) {
+                return $query->whereYear('tgl_penjualan', $_GET['tahun']);
+            })->count(),
         ]);
     });
 

@@ -9,7 +9,7 @@ class SupplierController extends Controller
 {
     public function index()
     {
-        $supplier = Supplier::get();
+        $supplier = Supplier::orderBy('nama')->get();
 
         return view('supplier.supplier', [
             'title' => 'Data Supplier',

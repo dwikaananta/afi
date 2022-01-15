@@ -18,6 +18,7 @@ class Penjualan extends Model
         'nama',
         'no_tlp',
         'total',
+        'status',
     ];
 
     public function user()
