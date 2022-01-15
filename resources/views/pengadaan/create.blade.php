@@ -122,15 +122,19 @@
             }, [form, detail]);
 
             const handleSubmit = () => {
-                axios.post('/api/pengadaan', {...form, user_id: {{ auth()->user()->id }}, detail: detail})
-                    .then(res => {
-                        console.log(res.data);
-                        if (res.data === 'success') {
-                            alert('Berhasil tambah Pengadaaan !');
-                            window.location.reload();
-                        }
-                    })
-                    .catch(err => console.log(err))
+                if (form.supplier_id && form.tgl_pengadaan) {
+                    axios.post('/api/pengadaan', {...form, user_id: {{ auth()->user()->id }}, detail: detail})
+                        .then(res => {
+                            console.log(res.data);
+                            if (res.data === 'success') {
+                                alert('Berhasil tambah Pengadaaan !');
+                                window.location.reload();
+                            }
+                        })
+                        .catch(err => console.log(err))
+                } else {
+                    alert('Supplier & Tanggal Pengadaan tidak boleh kosong !');
+                }
             }
 
             const [totalHarga, setTotalHarga] = useState(Number);

@@ -103,15 +103,19 @@
             }, [form, detail]);
 
             const handleSubmit = () => {
-                axios.post('/api/penjualan', {...form, user_id: {{ auth()->user()->id }}, detail: detail})
-                    .then(res => {
-                        console.log(res.data);
-                        if (res.data === 'success') {
-                            alert('Berhasil tambah Penjualan !');
-                            window.location.reload();
-                        }
-                    })
-                    .catch(err => console.log(err))
+                if (form.nama, form.no_tlp, form.tgl_penjualan) {
+                    axios.post('/api/penjualan', {...form, user_id: {{ auth()->user()->id }}, detail: detail})
+                        .then(res => {
+                            console.log(res.data);
+                            if (res.data === 'success') {
+                                alert('Berhasil tambah Penjualan !');
+                                window.location.reload();
+                            }
+                        })
+                        .catch(err => console.log(err))
+                } else {
+                    alert('Nama, No Tlp, & Tgl Penjualan tidak boleh kosong !');
+                }
             }
 
             const [totalHarga, setTotalHarga] = useState(Number);

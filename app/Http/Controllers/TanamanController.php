@@ -109,7 +109,11 @@ class TanamanController extends Controller
 
         $tanaman->update($data);
 
-        return redirect('/tanaman')->with('success', 'Berhasil ubah Data Tanaman !');
+        return '<script>
+            history.go(-2);
+        </script>';
+
+        // return redirect('/tanaman')->with('success', 'Berhasil ubah Data Tanaman !');
     }
 
     public function destroy(Tanaman $tanaman, Request $req)
