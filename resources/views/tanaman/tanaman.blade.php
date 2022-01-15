@@ -37,12 +37,12 @@
                         <td class="text-center">{{ $no++ }}</td>
                         <td>
                             {{-- {{ $t->kategori == 1 ? 'Palm plants' : '' }} --}}
-                            {{ $t->kategori == 2 ? 'Greenery plants' : '' }}
+                            {{ $t->kategori == 2 ? 'Aglaonema Plants' : '' }}
                             {{ $t->kategori == 3 ? 'Bonsai Plants' : '' }}
-                            {{ $t->kategori == 4 ? 'Vines Plants' : '' }}
-                            {{ $t->kategori == 5 ? 'Aglaonema Plants' : '' }}
+                            {{ $t->kategori == 4 ? 'Decorative Plants' : '' }}
+                            {{ $t->kategori == 5 ? 'Greenery Plants' : '' }}
                             {{ $t->kategori == 6 ? 'Taro Plants' : '' }}
-                            {{ $t->kategori == 7 ? 'Decorative plants' : '' }}
+                            {{ $t->kategori == 7 ? 'Vines Plants' : '' }}
                         </td>
                         <td>{{ $t->nama }}</td>
                         <td>{{ rupiah($t->harga_beli) }}</td>

@@ -8,12 +8,12 @@
                 <x-select label="Kategori" name="kategori">
                     <option value="">Pilih</option>
                     {{-- <option value="1">Palm plants</option> --}}
-                    <option value="2">Greenery plants</option>
+                    <option value="2">Aglaonema Plants</option>
                     <option value="3">Bonsai Plants</option>
-                    <option value="4">Vines Plants</option>
-                    <option value="5">Aglaonema Plants</option>
+                    <option value="4">Decorative Plants</option>
+                    <option value="5">Greenery Plants</option>
                     <option value="6">Taro Plants</option>
-                    <option value="7">Decorative plants</option>
+                    <option value="7">Vines Plants</option>
                 </x-select>
             </div>
             <div class="col-4">
