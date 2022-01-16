@@ -14,12 +14,18 @@
                 <th>No</th>
                 <th>Tanaman</th>
                 <th>Qty</th>
-                <th>Total</th>
+                <th class="text-end">Total (Rp)</th>
                 <th></th>
             </tr>
         </x-thead>
         @php
             $no = 1;
+
+            function rupiah($angka)
+            {
+                $hasil_rupiah = number_format($angka, 2, ',', '.');
+                return $hasil_rupiah;
+            }
         @endphp
         <tbody>
             @foreach ($reject as $r)
@@ -28,7 +34,7 @@
                         <td class="text-center">{{ $no ++ }}</td>
                         <td>{{ $r->tanaman ? $r->tanaman->nama : '' }}</td>
                         <td>{{ $r->qty }}</td>
-                        <td>{{ $r->total }}</td>
+                        <td class="text-end">{{ rupiah($r->total) }}</td>
                         <td>
                             @if ($r->status == 9)
                                 <form action="/reject/{{ $r->id }}?actived=true" method="POST" class="text-center">

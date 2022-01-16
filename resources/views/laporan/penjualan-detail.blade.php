@@ -21,35 +21,35 @@
             </div>
 
             <div class="row">
-                <div class="col-6 text-end">
+                <div class="col-3 ps-5">
                     User
                 </div>
-                <div class="col-6 text-start">
-                    {{ $penjualan->user ? $penjualan->user->nama : '' }}
+                <div class="col-9">
+                    : {{ $penjualan->user ? $penjualan->user->nama : '' }}
                 </div>
-                <div class="col-6 text-end">
+                <div class="col-3 ps-5">
                     Tgl Penjualan
                 </div>
-                <div class="col-6 text-start">
-                    {{ date('d-m-Y', strtotime($penjualan->tgl_penjualan)) }}
+                <div class="col-9">
+                    : {{ date('d-m-Y', strtotime($penjualan->tgl_penjualan)) }}
                 </div>
-                <div class="col-6 text-end">
+                <div class="col-3 ps-5">
                     Kode Penjualan
                 </div>
-                <div class="col-6 text-start">
-                    {{ $penjualan->kode_penjualan }}
+                <div class="col-9">
+                    : {{ $penjualan->kode_penjualan }}
                 </div>
-                <div class="col-6 text-end">
+                <div class="col-3 ps-5">
                     Nama
                 </div>
-                <div class="col-6 text-start">
-                    {{ $penjualan->nama }}
+                <div class="col-9">
+                    : {{ $penjualan->nama }}
                 </div>
-                <div class="col-6 text-end">
+                <div class="col-3 ps-5">
                     No Tlp
                 </div>
-                <div class="col-6 text-start">
-                    {{ $penjualan->no_tlp }}
+                <div class="col-9">
+                    : {{ $penjualan->no_tlp }}
                 </div>
             </div>
 
@@ -59,10 +59,10 @@
                 <table class="w-100">
                     @foreach ($penjualan->detail_penjualan as $dp)
                         <tr>
-                            <td class="text-center">{{ $dp->tanaman ? $dp->tanaman->nama : '' }}</td>
+                            <td class="ps-3">{{ $dp->tanaman ? $dp->tanaman->nama : '' }}</td>
                             <td class="text-center">{{ $dp->qty }} PCS</td>
                             <td class="text-center">{{ rupiah($dp->harga_jual) }}</td>
-                            <td class="text-center">{{ rupiah($dp->qty * $dp->harga_jual) }}</td>
+                            <td class="text-end pe-3">{{ rupiah($dp->qty * $dp->harga_jual) }}</td>
                         </tr>
                     @endforeach
                 </table>

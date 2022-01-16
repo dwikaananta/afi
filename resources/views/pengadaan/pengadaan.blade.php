@@ -16,7 +16,7 @@
                 <th>Supplier</th>
                 <th>Tgl Pengadaan</th>
                 <th>Kode Pengadaan</th>
-                <th>Total</th>
+                <th class="text-end">Total (Rp)</th>
                 <th></th>
             </tr>
         </x-thead>
@@ -25,7 +25,7 @@
 
             function rupiah($angka)
             {
-                $hasil_rupiah = 'Rp ' . number_format($angka, 2, ',', '.');
+                $hasil_rupiah = number_format($angka, 2, ',', '.');
                 return $hasil_rupiah;
             }
         @endphp
@@ -42,7 +42,7 @@
                         </td>
                         <td>{{ date('d-m-Y', strtotime($p->tgl_pengadaan)) }}</td>
                         <td>{{ $p->kode_pengadaan }}</td>
-                        <td>{{ rupiah($p->total) }}</td>
+                        <td class="text-end">{{ rupiah($p->total) }}</td>
                         <td>
                             @if ($p->status == 9)
                                 <form action="/pengadaan/{{ $p->id }}?actived=true" method="POST"

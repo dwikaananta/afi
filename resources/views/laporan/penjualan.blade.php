@@ -10,7 +10,7 @@
                 <th>Nota Penjualan</th>
                 <th>Nama Customer</th>
                 <th>No Telf</th>
-                <th>Total</th>
+                <th class="text-end">Total (Rp)</th>
                 <th>Aksi</th>
                 {{-- <th></th> --}}
             </tr>
@@ -20,7 +20,7 @@
 
             function rupiah($angka)
             {
-                $hasil_rupiah = 'Rp ' . number_format($angka, 2, ',', '.');
+                $hasil_rupiah = number_format($angka, 2, ',', '.');
                 return $hasil_rupiah;
             }
         @endphp
@@ -34,7 +34,7 @@
                         <td>{{ $p->kode_penjualan }}</td>
                         <td>{{ $p->nama }}</td>
                         <td>{{ $p->no_tlp }}</td>
-                        <td>{{ rupiah($p->total) }}</td>
+                        <td class="text-end">{{ rupiah($p->total) }}</td>
                         <td>
                             <a href="/penjualan-detail/{{ $p->id }}">Detail</a>
                         </td>

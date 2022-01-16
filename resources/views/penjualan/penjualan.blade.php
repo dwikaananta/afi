@@ -17,7 +17,7 @@
                 <th>Kode Penjualan</th>
                 <th>Nama</th>
                 <th>No Tlp</th>
-                <th>Total</th>
+                <th class="text-end">Total (Rp)</th>
                 <th></th>
             </tr>
         </x-thead>
@@ -26,7 +26,7 @@
 
             function rupiah($angka)
             {
-                $hasil_rupiah = 'Rp ' . number_format($angka, 2, ',', '.');
+                $hasil_rupiah = number_format($angka, 2, ',', '.');
                 return $hasil_rupiah;
             }
         @endphp
@@ -40,7 +40,7 @@
                         <td>{{ $p->kode_penjualan }}</td>
                         <td>{{ $p->nama }}</td>
                         <td>{{ $p->no_tlp }}</td>
-                        <td>{{ rupiah($p->total) }}</td>
+                        <td class="text-end">{{ rupiah($p->total) }}</td>
                         <td>
                             @if ($p->status == 9)
                                 <form action="/penjualan/{{ $p->id }}?actived=true" method="POST" class="text-center">

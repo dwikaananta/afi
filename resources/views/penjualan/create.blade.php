@@ -10,6 +10,13 @@
         const { useState, useEffect } = React;
         // imported
 
+        const rupiah = (numb) => {
+            const format = numb.toString().split('').reverse().join('');
+            const convert = format.match(/\d{1,3}/g);
+            const rupiah = 'Rp ' + convert.join('.').split('').reverse().join('');
+            return rupiah;
+        }
+
         const Main = (props) => {
             const {tanaman, number, onSendData} = props;
 
@@ -65,7 +72,7 @@
                         />
                     </td>
                     <td>
-                        {Number(qty) * Number(harga)}
+                        {rupiah(Number(qty) * Number(harga))}
                     </td>
                 </tr>
             )
@@ -103,7 +110,7 @@
             }, [form, detail]);
 
             const handleSubmit = () => {
-                if (form.nama, form.no_tlp, form.tgl_penjualan) {
+                if (form.tgl_penjualan) {
                     axios.post('/api/penjualan', {...form, user_id: {{ auth()->user()->id }}, detail: detail})
                         .then(res => {
                             console.log(res.data);
@@ -181,7 +188,7 @@
                     </table>
 
                     <div className="text-end">
-                        <h4>Total Bayar : {totalHarga}</h4>
+                        <h4>Total Bayar : {rupiah(Number(totalHarga))}</h4>
                     </div>
 
 

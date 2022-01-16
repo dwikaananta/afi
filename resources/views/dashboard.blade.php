@@ -51,14 +51,31 @@
         <canvas id="myChart"></canvas>
     </div>
 
-    <div class="text-center">
-        <h3>Kategori Tanaman Paling Laris {{ $_GET['tahun'] }}</h3>
+    <div class="row">
+        <div class="col-6">
+            <div class="text-center">
+                <h3>Kategori Tanaman Paling Laris {{ $_GET['tahun'] }}</h3>
+            </div>
+        
+            <div class="mb-4 w-50 m-auto">
+                <canvas id="myPie"></canvas>
+            </div>
+        </div>
+    
+        {{-- <div class="col-6">
+            <div class="text-center">
+                <h3>Top 10 Tanaman Paling Laris {{ $_GET['tahun'] }}</h3>
+            </div>
+        
+            <x-table>
+                <x-thead>
+                    <th>No</th>
+                    <th>Nama Tanaman</th>
+                    <th>Kategori</th>
+                </x-thead>
+            </x-table>
+        </div> --}}
     </div>
-    <div class="mb-4 w-50 m-auto">
-        <canvas id="myPie"></canvas>
-    </div>
-
-    {{-- // // --}}
 @endsection
 
 

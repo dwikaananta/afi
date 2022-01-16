@@ -9,7 +9,7 @@
                 <th>Supplier</th>
                 <th>Tgl Pengadaan</th>
                 <th>Nota Pengadaan</th>
-                <th>Total</th>
+                <th class="text-end">Total (Rp)</th>
                 <th>Aksi</th>
                 {{-- <th></th> --}}
             </tr>
@@ -19,7 +19,7 @@
             
             function rupiah($angka)
             {
-                $hasil_rupiah = 'Rp ' . number_format($angka, 2, ',', '.');
+                $hasil_rupiah = number_format($angka, 2, ',', '.');
                 return $hasil_rupiah;
             }
         @endphp
@@ -32,7 +32,7 @@
                         <td>{{ $p->supplier ? $p->supplier->nama : '' }}</td>
                         <td>{{ $p->tgl_pengadaan }}</td>
                         <td>{{ $p->kode_pengadaan }}</td>
-                        <td>{{ rupiah($p->total) }}</td>
+                        <td class="text-end">{{ rupiah($p->total) }}</td>
                         <td>
                             <a href="/pengadaan-detail/{{ $p->id }}">Detail</a>
                         </td>

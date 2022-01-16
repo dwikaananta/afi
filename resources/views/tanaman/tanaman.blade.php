@@ -14,8 +14,8 @@
                 <th>No</th>
                 <th>Kategori</th>
                 <th>Nama</th>
-                <th>Harga Beli</th>
-                <th>Harga Jual</th>
+                <th class="text-end">Harga Beli (Rp)</th>
+                <th class="text-end">Harga Jual (Rp)</th>
                 <th>Stok</th>
                 <th>Foto</th>
                 <th></th>
@@ -26,7 +26,7 @@
             
             function rupiah($angka)
             {
-                $hasil_rupiah = 'Rp ' . number_format($angka, 2, ',', '.');
+                $hasil_rupiah = number_format($angka, 2, ',', '.');
                 return $hasil_rupiah;
             }
         @endphp
@@ -45,8 +45,8 @@
                             {{ $t->kategori == 7 ? 'Vines Plants' : '' }}
                         </td>
                         <td>{{ $t->nama }}</td>
-                        <td>{{ rupiah($t->harga_beli) }}</td>
-                        <td>{{ rupiah($t->harga_jual) }}</td>
+                        <td class="text-end">{{ rupiah($t->harga_beli) }}</td>
+                        <td class="text-end">{{ rupiah($t->harga_jual) }}</td>
                         <td>{{ $t->stok }}</td>
                         <td class="text-center" style="width: 10%">
                             <img src="/storage/tanaman/{{ $t->img }}" class="img-fluid" alt="">
