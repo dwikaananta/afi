@@ -71,6 +71,17 @@ Route::post('/pengadaan', function(Request $req) {
         ]);
 
         $total += $d['total'];
+
+        $tanaman = Tanaman::find($d['tanaman_id']);
+
+        if ($tanaman) {
+            $stok = $tanaman->stok ?? 0;
+
+            $sellStok = $d['qty'] ?? 0;
+            $newStok = $stok + $sellStok;
+
+            $tanaman->update(['stok' => $newStok]);
+        }
     }
 
     $peng->update(['total' => $total]);
@@ -114,6 +125,17 @@ Route::post('/penjualan', function(Request $req) {
         ]);
 
         $total += $d['total'];
+
+        $tanaman = Tanaman::find($d['tanaman_id']);
+
+        if ($tanaman) {
+            $stok = $tanaman->stok ?? 0;
+
+            $sellStok = $d['qty'] ?? 0;
+            $newStok = $stok - $sellStok;
+
+            $tanaman->update(['stok' => $newStok]);
+        }
     }
 
     $pen->update(['total' => $total]);
