@@ -1,5 +1,7 @@
 @extends('layouts.main')
 
+@include('layouts.helper')
+
 @section('content')
     <x-alert />
     <div class="row text-end">
@@ -23,12 +25,6 @@
         </x-thead>
         @php
             $no = 1;
-            
-            function rupiah($angka)
-            {
-                $hasil_rupiah = number_format($angka, 2, ',', '.');
-                return $hasil_rupiah;
-            }
         @endphp
         <tbody>
             @foreach ($tanaman as $t)
@@ -47,7 +43,7 @@
                         <td>{{ $t->nama }}</td>
                         <td class="text-end">{{ rupiah($t->harga_beli) }}</td>
                         <td class="text-end">{{ rupiah($t->harga_jual) }}</td>
-                        <td>{{ $t->stok }}</td>
+                        <td class="text-center">{{ $t->stok }}</td>
                         <td class="text-center" style="width: 10%">
                             <img src="/storage/tanaman/{{ $t->img }}" class="img-fluid" alt="">
                         </td>

@@ -1,5 +1,7 @@
 @extends('layouts.main')
 
+@include('layouts.helper')
+
 @section('content')
     <x-table>
         <x-thead>
@@ -16,12 +18,6 @@
         </x-thead>
         @php
             $no = 1;
-            
-            function rupiah($angka)
-            {
-                $hasil_rupiah = number_format($angka, 2, ',', '.');
-                return $hasil_rupiah;
-            }
         @endphp
         <tbody>
             @foreach ($pengadaan as $p)

@@ -192,7 +192,7 @@
                                 <th>No</th>
                                 <th>Tanaman</th>
                                 <th>Qty</th>
-                                <th>Harga Beli</th>
+                                <th>Harga Jual</th>
                                 <th>Total</th>
                             </tr>
                         </thead>
