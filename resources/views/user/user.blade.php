@@ -19,7 +19,7 @@
                 <th>Email</th>
                 <th>Alamat</th>
                 <th>Reg Date</th>
-                <th></th>
+                <th>Aksi</th>
             </tr>
         </x-thead>
         @php

@@ -17,7 +17,7 @@
                 <th>Tanaman</th>
                 <th>Qty</th>
                 <th class="text-end">Total (Rp)</th>
-                <th></th>
+                <th>Aksi</th>
             </tr>
         </x-thead>
         @php

@@ -16,7 +16,7 @@
                 <th>Email</th>
                 <th>No Tlp</th>
                 <th>Alamat</th>
-                <th></th>
+                <th>Aksi</th>
             </tr>
         </x-thead>
         @php

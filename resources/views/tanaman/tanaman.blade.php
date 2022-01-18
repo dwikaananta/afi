@@ -20,7 +20,7 @@
                 <th class="text-end">Harga Jual (Rp)</th>
                 <th>Stok</th>
                 <th>Foto</th>
-                <th></th>
+                <th>Aksi</th>
             </tr>
         </x-thead>
         @php

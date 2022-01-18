@@ -19,15 +19,117 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap5.min.css">
 
+    <style>
+        /* btn primary */
+        /* .btn-primary {
+            color: #fff;
+            background-color: #0d6efd;
+            border-color: #0d6efd;
+        }
+
+        .btn-primary:hover {
+            color: #fff;
+            background-color: #0b5ed7;
+            border-color: #0a58ca;
+        } */
+
+        /* btn success */
+        /* .btn-success {
+            color: #fff;
+            background-color: #146c43;
+            border-color: #13653f;
+        }
+
+        .btn-success:hover {
+            color: #fff;
+            background-color: #157347;
+            border-color: #146c43;
+        } */
+
+        /* btn danger */
+        /* .btn-danger {
+            color: #fff;
+            background-color: #b02a37;
+            border-color: #a52834;
+        }
+
+        .btn-danger:hover {
+            color: #fff;
+            background-color: #bb2d3b;
+            border-color: #b02a37;
+        } */
+
+        /* warning */
+        /* .btn-warning {
+            color: #000;
+            background-color: #ffc107;
+            border-color: #ffc107;
+        }
+
+        .btn-warning:hover {
+            color: #000;
+            background-color: #ffca2c;
+            border-color: #ffc720;
+        } */
+
+        /* custom */
+
+        .btn-primary {
+            color: #fff;
+            background-color: #094d09;
+            border-color: #13653f;
+        }
+
+        .btn-primary:hover {
+            color: #fff;
+            background-color: #157347;
+            border-color: #146c43;
+        }
+
+        .btn-success {
+            color: #fff;
+            background-color: #ffb007;
+            border-color: #ffc107;
+        }
+
+        .btn-success:hover {
+            color: #fff;
+            background-color: #ffca2c;
+            border-color: #ffc720;
+        }
+
+        .bg-primary {
+            background-color: #198754 !important;
+        }
+
+        .page-item.active .page-link {
+            background-color: #198754;
+            border-color: #198754;
+        }
+    </style>
+
     <title>{{ env('app_name') }}</title>
 </head>
 
 <body class="bg-light">
 
     @auth
-        <div class="text-center my-3">
-            <h3>{{ env('app_name') }}</h3>
+        <div class="text-center my-3 d-flex justify-content-center">
+            <img src="/logo.png" class="img-fluid" style="width: 10%" alt="">
+            <h2 class="mt-4">Aplikasi Manajemen Stok Tanaman</h2>
         </div>
+        @auth
+            <div class="container">
+                <div class="text-end row d-flex justify-content-end">
+                    <div class="col-2 bg-success d-flex justify-content-center align-items-center text-white rounded mb-2 p-2">
+                        {{ auth()->user()->nama }}
+                        <div class="flex-shrink-0">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQeLJOzTAW4sn22WgYxepEVozqjZWtyqLGJPQ&usqp=CAU" class="img-fluid rounded-circle border border-dark border-3 ms-2" style="width: 35px; height: 35px;" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        @endauth
         <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
             <div class="container-fluid">
                 {{-- <a class="navbar-brand" href="#">{{ env('app_name') }}</a> --}}

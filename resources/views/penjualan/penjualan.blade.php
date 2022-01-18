@@ -20,7 +20,7 @@
                 <th>Nama</th>
                 <th>No Tlp</th>
                 <th class="text-end">Total (Rp)</th>
-                <th></th>
+                <th>Aksi</th>
             </tr>
         </x-thead>
         @php
