@@ -74,9 +74,13 @@
 
         /* custom */
 
+        .bg-primary-2 {
+            background-color: #afe618 !important;
+        }
+
         .btn-primary {
             color: #fff;
-            background-color: #094d09;
+            background-color: #146c43;
             border-color: #13653f;
         }
 
@@ -114,17 +118,21 @@
 <body class="bg-light">
 
     @auth
-        <div class="text-center my-3 d-flex justify-content-center">
-            <img src="/logo.png" class="img-fluid" style="width: 10%" alt="">
-            <h2 class="mt-4">Aplikasi Manajemen Stok Tanaman</h2>
-        </div>
         @auth
-            <div class="container">
-                <div class="text-end row d-flex justify-content-end">
-                    <div class="col-2 bg-success d-flex justify-content-center align-items-center text-white rounded mb-2 p-2">
-                        {{ auth()->user()->nama }}
-                        <div class="flex-shrink-0">
-                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQeLJOzTAW4sn22WgYxepEVozqjZWtyqLGJPQ&usqp=CAU" class="img-fluid rounded-circle border border-dark border-3 ms-2" style="width: 35px; height: 35px;" alt="">
+            <div class="bg-success bg-primary-2">
+                <div class="container">
+                    <div class="text-end row d-flex justify-content-end">
+                        <div class="col">
+                            <div class="text-center my-3 d-flex justify-content-center">
+                                <img src="/logo.png" class="img-fluid" style="width: 10%" alt="">
+                                <h2 class="mt-4">Aplikasi Manajemen Stok Tanaman</h2>
+                            </div>
+                        </div>
+                        <div class="col d-flex justify-content-end align-items-center text-white rounded pt-4">
+                            <div class="flex-shrink-0">
+                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQeLJOzTAW4sn22WgYxepEVozqjZWtyqLGJPQ&usqp=CAU" class="img-fluid rounded-circle border border-dark border-3 me-2" style="width: 35px; height: 35px;" alt="">
+                            </div>
+                            {{ auth()->user()->nama }}
                         </div>
                     </div>
                 </div>
