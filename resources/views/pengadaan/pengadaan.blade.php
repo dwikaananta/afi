@@ -45,18 +45,22 @@
                                     class="text-center">
                                     @csrf
                                     @method('DELETE')
+                                    <a href="/pengadaan/{{ $p->id }}" class="btn btn-sm btn-info"><i
+                                            class="fa fa-eye me-1"></i></a>
                                     {{-- <a href="/pengadaan/{{ $p->id }}/edit" class="btn btn-sm btn-success"><i
                                             class="fa fa-edit me-1"></i>Ubah</a> --}}
                                     <button class="btn btn-sm btn-success"><i
-                                            class="fa fa-arrow-up me-1"></i>Aktifkan</button>
+                                            class="fa fa-arrow-up me-1"></i></button>
                                 </form>
                             @else
                                 <form action="/pengadaan/{{ $p->id }}" method="POST" class="text-center">
                                     @csrf
                                     @method('DELETE')
+                                    <a href="/pengadaan/{{ $p->id }}" class="btn btn-sm btn-info"><i
+                                            class="fa fa-eye me-1"></i></a>
                                     {{-- <a href="/pengadaan/{{ $p->id }}/edit" class="btn btn-sm btn-success"><i
                                             class="fa fa-edit me-1"></i>Ubah</a> --}}
-                                    <button class="btn btn-sm btn-danger"><i class="fa fa-arrow-down me-1"></i>Nonaktifkan</button>
+                                    <button class="btn btn-sm btn-danger"><i class="fa fa-power-off me-1"></i></button>
                                 </form>
                             @endif
                         </td>

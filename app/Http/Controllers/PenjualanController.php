@@ -64,7 +64,10 @@ class PenjualanController extends Controller
 
     public function show(Penjualan $penjualan)
     {
-        //
+        return view('penjualan.show', [
+            'title' => 'Detail Penjualan',
+            'penjualan' => $penjualan,
+        ]);
     }
 
     public function edit(Penjualan $penjualan)

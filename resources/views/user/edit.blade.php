@@ -4,10 +4,6 @@
     <form action="/user/{{ $user->id }}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('PATCH')
-        <div class="text-center">
-            <img src="/storage/users/{{ $user->img }}" alt="" class="img-fluid w-50">
-        </div>
-        <x-input label="Foto" name="img" type="file" />
         <x-input label="Nama" name="nama" type="text" value="{{ $user->nama }}" />
         <div class="row">
             <div class="col-md-4">
@@ -33,6 +29,10 @@
                 <x-input label="Konfirmasi Password" name="password_confirmation" type="password" />
             </div>
         </div>
+        <div class="text-center">
+            <img src="/storage/users/{{ $user->img }}" alt="" class="img-fluid w-50">
+        </div>
+        <x-input label="Foto" name="img" type="file" />
         <div class="btn-group">
             <button type="submit" class="btn btn-sm btn-success">Ubah</button>
             <a href="/user" class="btn btn-sm btn-danger">Kembali</a>

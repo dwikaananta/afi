@@ -54,18 +54,18 @@
                                     @csrf
                                     @method('DELETE')
                                     <a href="/tanaman/{{ $t->id }}/edit" class="btn btn-sm btn-success"><i
-                                            class="fa fa-edit me-1"></i>Ubah</a>
+                                            class="fa fa-edit me-1"></i></a>
                                     <button class="btn btn-sm btn-success"><i
-                                            class="fa fa-arrow-up me-1"></i>Aktifkan</button>
+                                            class="fa fa-arrow-up me-1"></i></button>
                                 </form>
                             @else
                                 <form action="/tanaman/{{ $t->id }}" method="POST" class="text-center">
                                     @csrf
                                     @method('DELETE')
                                     <a href="/tanaman/{{ $t->id }}/edit" class="btn btn-sm btn-success"><i
-                                            class="fa fa-edit me-1"></i>Ubah</a>
+                                            class="fa fa-edit me-1"></i></a>
                                     <button class="btn btn-sm btn-danger"><i
-                                            class="fa fa-arrow-down me-1"></i>Nonaktifkan</button>
+                                            class="fa fa-power-off me-1"></i></button>
                                 </form>
                             @endif
                         </td>

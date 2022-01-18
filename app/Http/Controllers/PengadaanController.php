@@ -65,7 +65,10 @@ class PengadaanController extends Controller
 
     public function show(Pengadaan $pengadaan)
     {
-        //
+        return view('pengadaan.show', [
+            'title' => 'Detail Pengadaan',
+            'pengadaan' => $pengadaan,
+        ]);
     }
 
     public function edit(Pengadaan $pengadaan)

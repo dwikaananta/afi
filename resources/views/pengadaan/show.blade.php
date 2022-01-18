@@ -1,4 +1,4 @@
-@extends('layouts.print')
+@extends('layouts.main')
 
 @section('content')
     @php
@@ -9,10 +9,6 @@
     }
     @endphp
     <div class="container">
-        <div class="text-center">
-            <h1>Detail Pengadaan</h1>
-        </div>
-
         <div class="border border-dark py-3">
             <div class="row">
                 <div class="col-3 ps-4">
@@ -63,7 +59,6 @@
                 <div class="col-6 text-center">{{ rupiah($pengadaan->total) }}</div>
             </div>
         </div>
-
-        <x-btn-print />
+        <a href="/pengadaan" class="btn btn-danger btn-sm mt-4">Kembali</a>
     </div>
 @endsection

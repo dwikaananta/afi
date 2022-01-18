@@ -3,7 +3,6 @@
 @section('content')
     <form action="/user" method="POST" enctype="multipart/form-data">
         @csrf
-        <x-input label="Foto" name="img" type="file" />
         <x-input label="Nama" name="nama" type="text" />
         <div class="row">
             <div class="col-md-4">
@@ -27,6 +26,7 @@
                 <x-input label="Konfirmasi Password" name="password_confirmation" type="password" />
             </div>
         </div>
+        <x-input label="Foto" name="img" type="file" />
         <div class="btn-group">
             <button type="submit" class="btn btn-sm btn-success">Tambah</button>
             <a href="/user" class="btn btn-sm btn-danger">Kembali</a>
