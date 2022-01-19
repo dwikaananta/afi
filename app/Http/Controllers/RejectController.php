@@ -8,9 +8,12 @@ use Illuminate\Http\Request;
 
 class RejectController extends Controller
 {
-    public function index()
+    public function index(Request $req)
     {
-        $reject = Reject::with('tanaman')->get();
+        $reject = Reject::with('tanaman')
+            ->when($req->bulan, fn($query) => $query->whereMonth('tgl_reject', $req->bulan))
+            ->when($req->tahun, fn($query) => $query->whereYear('tgl_reject', $req->tahun))
+            ->get();
 
         return view('reject.reject', [
             'title' => 'Data Reject',
@@ -31,6 +34,7 @@ class RejectController extends Controller
         $req->validate([
             'tanaman_id' => 'required',
             'qty' => 'required',
+            'tgl_reject' => 'required',
         ]);
 
         $tanaman = Tanaman::find($req->tanaman_id);
@@ -39,6 +43,7 @@ class RejectController extends Controller
             'tanaman_id' => $req->tanaman_id,
             'qty' => $req->qty,
             'total' => $tanaman->harga_jual * $req->qty,
+            'tgl_reject' => $req->tgl_reject,
         ];
 
         Reject::create($data);
@@ -65,6 +70,7 @@ class RejectController extends Controller
         $req->validate([
             'tanaman_id' => 'required',
             'qty' => 'required',
+            'tgl_reject' => 'required',
         ]);
 
         $tanaman = Tanaman::find($req->tanaman_id);
@@ -73,6 +79,7 @@ class RejectController extends Controller
             'tanaman_id' => $req->tanaman_id,
             'qty' => $req->qty,
             'total' => $tanaman->harga_jual * $req->qty,
+            'tgl_reject' => $req->tgl_reject,
         ];
 
         $reject->update($data);

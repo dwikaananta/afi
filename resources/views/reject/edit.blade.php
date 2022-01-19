@@ -16,6 +16,9 @@
             <div class="col-6">
                 <x-input label="Qty" name="qty" type="number" value="{{ $reject->qty }}" />
             </div>
+            <div class="col-6">
+                <x-input label="Tgl Reject" name="tgl_reject" type="date" value="{{ $reject->tgl_reject }}" />
+            </div>
         </div>
         <div class="btn-group">
             <button type="submit" class="btn btn-sm btn-success">Ubah</button>

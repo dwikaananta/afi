@@ -14,11 +14,11 @@
                 <th>No</th>
                 <th>Foto</th>
                 <th>Nama</th>
-                <th>Gender</th>
+                {{-- <th>Gender</th> --}}
                 <th>No Tlp</th>
                 <th>Email</th>
                 <th>Alamat</th>
-                <th>Reg Date</th>
+                {{-- <th>Reg Date</th> --}}
                 <th>Aksi</th>
             </tr>
         </x-thead>
@@ -34,11 +34,11 @@
                             <img src="/storage/users/{{ $u->img }}" class="img-fluid" alt="">
                         </td>
                         <td class="text-nowrap">{{ $u->nama }}</td>
-                        <td class="text-nowrap">{{ $u->gender == 1 ? 'Laki-Laki' : 'Perempuan' }}</td>
+                        {{-- <td class="text-nowrap">{{ $u->gender == 1 ? 'Laki-Laki' : 'Perempuan' }}</td> --}}
                         <td class="text-nowrap">{{ $u->no_tlp }}</td>
                         <td class="text-nowrap">{{ $u->email }}</td>
                         <td class="text-nowrap">{{ $u->alamat }}</td>
-                        <td class="text-nowrap">{{ $u->regdate ? date('d-m-Y', strtotime($u->regdate)) : '' }}</td>
+                        {{-- <td class="text-nowrap">{{ $u->regdate ? date('d-m-Y', strtotime($u->regdate)) : '' }}</td> --}}
                         <td>
                             @if ($u->status == 9)
                                 <form action="/user/{{ $u->id }}?actived=true" method="POST" class="text-center">

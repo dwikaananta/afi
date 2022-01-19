@@ -16,6 +16,7 @@ class Reject extends Model
         'qty',
         'total',
         'status',
+        'tgl_reject',
     ];
 
     public function tanaman()

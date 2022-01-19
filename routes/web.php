@@ -154,6 +154,16 @@ Route::middleware('is_login')->group(function() {
         ]);
     });
 
+    Route::get('/laporan-reject', function(Request $req) {
+        $reject = Reject::with('tanaman')
+            ->when($req->bulan, fn($query) => $query->whereMonth('tgl_reject', $req->bulan))
+            ->when($req->tahun, fn($query) => $query->whereYear('tgl_reject', $req->tahun))
+            ->latest()->get();
+        return view('laporan.reject', [
+            'reject' => $reject,
+        ]);
+    });
+
     Route::get('/logout', function(Request $req) {
         Auth::logout();
 
