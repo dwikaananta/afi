@@ -15,6 +15,7 @@
             <tr>
                 <th>No</th>
                 <th>Kategori</th>
+                <th>Kode</th>
                 <th>Nama</th>
                 <th class="text-end">Harga Beli (Rp)</th>
                 <th class="text-end">Harga Jual (Rp)</th>
@@ -40,6 +41,7 @@
                             {{ $t->kategori == 6 ? 'Taro Plants' : '' }}
                             {{ $t->kategori == 7 ? 'Vines Plants' : '' }}
                         </td>
+                        <td>{{ $t->kode }}</td>
                         <td>{{ $t->nama }}</td>
                         <td class="text-end">{{ rupiah($t->harga_beli) }}</td>
                         <td class="text-end">{{ rupiah($t->harga_jual) }}</td>

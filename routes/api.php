@@ -2,6 +2,7 @@
 
 use App\Models\DetailPengadaan;
 use App\Models\DetailPenjualan;
+use App\Models\LogHarga;
 use App\Models\Pengadaan;
 use App\Models\Penjualan;
 use App\Models\Supplier;
@@ -75,12 +76,48 @@ Route::post('/pengadaan', function(Request $req) {
         $tanaman = Tanaman::find($d['tanaman_id']);
 
         if ($tanaman) {
+            // getKodeLog
+            function getKodeLogHarga($last_id) {
+                $default = 6;
+                $length_id = strlen($last_id);
+                $range = $default - $length_id;
+        
+                $data = '';
+                for ($i=0; $i < $range; $i++) { 
+                    $data = $data . '0';
+                }
+        
+                return 'KL' . $data . $last_id;
+            }
+
+            function getNewHarga($tanaman, $d) {
+                $old = $tanaman->harga_beli * $tanaman->stok;
+                $new  = $d['harga_beli'] * $d['qty'];
+                $total_tambah = $old + $new;
+                $total_stok = $tanaman->stok + $d['qty'];
+                $hasil = $total_tambah / $total_stok;
+
+                return round($hasil);
+            }
+        
+            $last_id_log = LogHarga::max('id');
+        
+            LogHarga::create([
+                'kode' => getKodeLogHarga($last_id_log + 1),
+                'tanaman_id' => $tanaman->id,
+                'harga_beli' => getNewHarga($tanaman, $d),
+            ]);
+
+
             $stok = $tanaman->stok ?? 0;
 
-            $sellStok = $d['qty'] ?? 0;
-            $newStok = $stok + $sellStok;
+            $buyStok = $d['qty'] ?? 0;
+            $newStok = $stok + $buyStok;
 
-            $tanaman->update(['stok' => $newStok]);
+            $tanaman->update([
+                'stok' => $newStok,
+                'harga_beli' => getNewHarga($tanaman, $d),
+            ]);
         }
     }
 

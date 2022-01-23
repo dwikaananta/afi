@@ -9,7 +9,16 @@ class TanamanController extends Controller
 {
     public function index()
     {
-        $tanaman = Tanaman::orderBy('kategori')->orderBy('nama')->get();
+        $non_kode = Tanaman::whereNull('kode')->get();
+        if ($non_kode) {
+            foreach ($non_kode as $nk) {
+                $nk->update([
+                    'kode' => $this->getKodeTanaman($nk->id),
+                ]);
+            }
+        }
+
+        $tanaman = Tanaman::with('log_harga')->orderBy('kategori')->orderBy('nama')->get();
 
         return view('tanaman.tanaman', [
             'title' => 'Data Tanaman',
@@ -52,8 +61,11 @@ class TanamanController extends Controller
             return null;
         }
 
+        $last_id = Tanaman::max('id');
+
         $data = [
             'kategori' => $req->kategori,
+            'kode' => $this->getKodeTanaman($last_id + 1),
             'nama' => $req->nama,
             'img' => handleUpload($req),
             'harga_beli' => $req->harga_beli,
@@ -119,5 +131,18 @@ class TanamanController extends Controller
         $tanaman->update(['status' => $req->actived ? null : 9]);
 
         return back()->with('success', 'Berhasil update status Tanaman !');
+    }
+
+    function getKodeTanaman($last_id) {
+        $default = 6;
+        $length_id = strlen($last_id);
+        $range = $default - $length_id;
+
+        $data = '';
+        for ($i=0; $i < $range; $i++) { 
+            $data = $data . '0';
+        }
+
+        return 'KT' . $data . $last_id;
     }
 }

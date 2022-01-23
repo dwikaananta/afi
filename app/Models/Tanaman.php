@@ -13,6 +13,7 @@ class Tanaman extends Model
 
     protected $fillable = [
         'kategori',
+        'kode',
         'nama',
         'img',
         'harga_beli',
@@ -20,4 +21,9 @@ class Tanaman extends Model
         'stok',
         'status',
     ];
+
+    public function log_harga()
+    {
+        return $this->hasMany(LogHarga::class);
+    }
 }

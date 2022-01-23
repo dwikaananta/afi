@@ -51,7 +51,7 @@
                             {tanaman.length > 0 && tanaman.map((t,index) => {
                                 return (
                                     <React.Fragment key={index}>
-                                        <option value={`${t.id}_${t.harga_beli}`}>{t.nama}</option>
+                                        <option value={`${t.id}_${t.harga_beli}`}>{t.kode + ' ' + t.nama}</option>
                                     </React.Fragment>
                                 )
                             })}
@@ -192,7 +192,7 @@
                                 <th>No</th>
                                 <th>Tanaman</th>
                                 <th>Qty</th>
-                                <th>Harga Jual</th>
+                                <th>Harga Beli</th>
                                 <th>Total</th>
                             </tr>
                         </thead>
