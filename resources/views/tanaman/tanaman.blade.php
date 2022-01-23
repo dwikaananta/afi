@@ -49,7 +49,7 @@
                         <td class="text-center" style="width: 10%">
                             <img src="/storage/tanaman/{{ $t->img }}" class="img-fluid" alt="">
                         </td>
-                        <td>
+                        <td class="text-nowrap">
                             @if ($t->status == 9)
                                 <form action="/tanaman/{{ $t->id }}?actived=true" method="POST"
                                     class="text-center">
