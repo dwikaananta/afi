@@ -9,12 +9,12 @@
                 <x-select label="Kategori" name="kategori">
                     <option value="">Pilih</option>
                     {{-- <option value="1" @if ($tanaman->kategori == 1) selected @endif>Palm plants</option> --}}
-                    <option value="2" @if ($tanaman->kategori == 2) selected @endif>Aglaonema Plants</option>
-                    <option value="3" @if ($tanaman->kategori == 3) selected @endif>Bonsai Plants</option>
-                    <option value="4" @if ($tanaman->kategori == 4) selected @endif>Decorative Plants</option>
-                    <option value="5" @if ($tanaman->kategori == 5) selected @endif>Greenery Plants</option>
-                    <option value="6" @if ($tanaman->kategori == 6) selected @endif>Taro Plants</option>
-                    <option value="7" @if ($tanaman->kategori == 7) selected @endif>Vines Plants</option>
+                    <option value="1" @if ($tanaman->kategori == 2) selected @endif>Aglaonema Plants</option>
+                    <option value="2" @if ($tanaman->kategori == 3) selected @endif>Bonsai Plants</option>
+                    <option value="3" @if ($tanaman->kategori == 4) selected @endif>Decorative Plants</option>
+                    <option value="4" @if ($tanaman->kategori == 5) selected @endif>Greenery Plants</option>
+                    <option value="5" @if ($tanaman->kategori == 6) selected @endif>Taro Plants</option>
+                    <option value="6" @if ($tanaman->kategori == 7) selected @endif>Vines Plants</option>
                 </x-select>
             </div>
             <div class="col-4">
