@@ -34,12 +34,12 @@
                         <td class="text-center">{{ $no++ }}</td>
                         <td>
                             {{-- {{ $t->kategori == 1 ? 'Palm plants' : '' }} --}}
-                            {{ $t->kategori == 2 ? 'Aglaonema Plants' : '' }}
-                            {{ $t->kategori == 3 ? 'Bonsai Plants' : '' }}
-                            {{ $t->kategori == 4 ? 'Decorative Plants' : '' }}
-                            {{ $t->kategori == 5 ? 'Greenery Plants' : '' }}
-                            {{ $t->kategori == 6 ? 'Taro Plants' : '' }}
-                            {{ $t->kategori == 7 ? 'Vines Plants' : '' }}
+                            {{ $t->kategori == 1 ? 'Aglaonema Plants' : '' }}
+                            {{ $t->kategori == 2 ? 'Bonsai Plants' : '' }}
+                            {{ $t->kategori == 3 ? 'Decorative Plants' : '' }}
+                            {{ $t->kategori == 4 ? 'Greenery Plants' : '' }}
+                            {{ $t->kategori == 5 ? 'Taro Plants' : '' }}
+                            {{ $t->kategori == 6 ? 'Vines Plants' : '' }}
                         </td>
                         <td>{{ $t->kode }}</td>
                         <td>{{ $t->nama }}</td>
