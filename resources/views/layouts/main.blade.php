@@ -124,8 +124,8 @@
                     <div class="text-end row d-flex justify-content-end">
                         <div class="col">
                             <div class="text-center my-3 d-flex justify-content-center">
-                                <img src="/logo.png" class="img-fluid" style="width: 10%" alt="">
-                                <h2 class="mt-4">Aplikasi Manajemen Stok Tanaman</h2>
+                                <img src="/logo.png" class="img-fluid" style="width: 30%" alt="">
+                                <h2 class="mt-4 text-nowrap">Aplikasi Manajemen Stok Tanaman</h2>
                             </div>
                         </div>
                         <div class="col d-flex justify-content-end align-items-center text-white rounded pt-4">

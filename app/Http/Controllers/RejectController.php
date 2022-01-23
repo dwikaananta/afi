@@ -42,7 +42,7 @@ class RejectController extends Controller
         $data = [
             'tanaman_id' => $req->tanaman_id,
             'qty' => $req->qty,
-            'total' => $tanaman->harga_jual * $req->qty,
+            'total' => $tanaman->harga_beli * $req->qty,
             'tgl_reject' => $req->tgl_reject,
         ];
 
