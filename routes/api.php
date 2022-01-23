@@ -62,6 +62,30 @@ Route::post('/pengadaan', function(Request $req) {
 
     $peng = Pengadaan::create($pengadaan);
 
+    // getKodeLog
+    function getKodeLogHarga($last_id) {
+        $default = 6;
+        $length_id = strlen($last_id);
+        $range = $default - $length_id;
+
+        $data = '';
+        for ($i=0; $i < $range; $i++) { 
+            $data = $data . '0';
+        }
+
+        return 'KL' . $data . $last_id;
+    }
+
+    function getNewHarga($tanaman, $d) {
+        $old = $tanaman->harga_beli * $tanaman->stok;
+        $new  = $d['harga_beli'] * $d['qty'];
+        $total_tambah = $old + $new;
+        $total_stok = $tanaman->stok + $d['qty'];
+        $hasil = $total_tambah / $total_stok;
+
+        return round($hasil);
+    }
+
     $total = 0;
     foreach ($req->detail as $d) {
         DetailPengadaan::create([
@@ -76,30 +100,6 @@ Route::post('/pengadaan', function(Request $req) {
         $tanaman = Tanaman::find($d['tanaman_id']);
 
         if ($tanaman) {
-            // getKodeLog
-            function getKodeLogHarga($last_id) {
-                $default = 6;
-                $length_id = strlen($last_id);
-                $range = $default - $length_id;
-        
-                $data = '';
-                for ($i=0; $i < $range; $i++) { 
-                    $data = $data . '0';
-                }
-        
-                return 'KL' . $data . $last_id;
-            }
-
-            function getNewHarga($tanaman, $d) {
-                $old = $tanaman->harga_beli * $tanaman->stok;
-                $new  = $d['harga_beli'] * $d['qty'];
-                $total_tambah = $old + $new;
-                $total_stok = $tanaman->stok + $d['qty'];
-                $hasil = $total_tambah / $total_stok;
-
-                return round($hasil);
-            }
-        
             $last_id_log = LogHarga::max('id');
         
             LogHarga::create([

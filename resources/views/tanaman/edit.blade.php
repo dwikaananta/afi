@@ -4,9 +4,6 @@
     <form action="/tanaman/{{ $tanaman->id }}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('PATCH')
-        <div class="text-center">
-            <img src="/storage/tanaman/{{ $tanaman->img }}" alt="" class="img-fluid w-50">
-        </div>
         <div class="row">
             <div class="col-4">
                 <x-select label="Kategori" name="kategori">
@@ -23,9 +20,6 @@
             <div class="col-4">
                 <x-input label="Nama" name="nama" value="{{ $tanaman->nama }}" />
             </div>
-            <div class="col-4">
-                <x-input label="Foto" name="img" type="file" />
-            </div>
         </div>
         <div class="row">
             <div class="col-4">
@@ -36,6 +30,14 @@
             </div>
             <div class="col-4">
                 <x-input label="Stok" name="stok" value="{{ $tanaman->stok }}" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4">
+                <div class="text-center">
+                    <img src="/storage/tanaman/{{ $tanaman->img }}" alt="" class="img-fluid w-25">
+                </div>
+                <x-input label="Foto" name="img" type="file" />
             </div>
         </div>
         <div class="btn-group">

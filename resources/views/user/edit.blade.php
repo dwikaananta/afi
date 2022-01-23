@@ -30,7 +30,7 @@
             </div>
         </div>
         <div class="text-center">
-            <img src="/storage/users/{{ $user->img }}" alt="" class="img-fluid w-50">
+            <img src="/storage/users/{{ $user->img }}" alt="" class="img-fluid w-25">
         </div>
         <x-input label="Foto" name="img" type="file" />
         <div class="btn-group">

@@ -19,9 +19,6 @@
             <div class="col-4">
                 <x-input label="Nama" name="nama" />
             </div>
-            <div class="col-4">
-                <x-input label="Foto" name="img" type="file" />
-            </div>
         </div>
         <div class="row">
             <div class="col-4">
@@ -32,6 +29,11 @@
             </div>
             <div class="col-4">
                 <x-input label="Stok" name="stok" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4">
+                <x-input label="Foto" name="img" type="file" />
             </div>
         </div>
         <div class="btn-group">
