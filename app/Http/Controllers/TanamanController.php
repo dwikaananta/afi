@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\LogHarga;
 use App\Models\Tanaman;
 use Illuminate\Http\Request;
 
@@ -73,7 +74,29 @@ class TanamanController extends Controller
             'stok' => $req->stok,
         ];
 
-        Tanaman::create($data);
+        $tanaman = Tanaman::create($data);
+
+        // getKodeLog
+        function getKodeLogHarga($last_id) {
+            $default = 6;
+            $length_id = strlen($last_id);
+            $range = $default - $length_id;
+
+            $data = '';
+            for ($i=0; $i < $range; $i++) { 
+                $data = $data . '0';
+            }
+
+            return 'KL' . $data . $last_id;
+        }
+
+        $last_id_log = LogHarga::max('id');
+
+        LogHarga::create([
+            'kode' => getKodeLogHarga($last_id_log + 1),
+            'tanaman_id' => $tanaman->id,
+            'harga_beli' => $req->harga_beli,
+        ]);
 
         return redirect('/tanaman')->with('success', 'Berhasil tambah Data Tanaman !');
     }
