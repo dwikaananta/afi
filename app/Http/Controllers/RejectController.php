@@ -37,14 +37,17 @@ class RejectController extends Controller
             'tgl_reject' => 'required',
         ]);
 
-        $tanaman = Tanaman::find($req->tanaman_id);
-
         $data = [
             'tanaman_id' => $req->tanaman_id,
             'qty' => $req->qty,
             'total' => $tanaman->harga_beli * $req->qty,
             'tgl_reject' => $req->tgl_reject,
         ];
+
+        $tanaman = Tanaman::find($req->tanaman_id);
+        $tanaman->update([
+            'stok' => $tanaman->stok - $req->qty,
+        ]);
 
         Reject::create($data);
 
