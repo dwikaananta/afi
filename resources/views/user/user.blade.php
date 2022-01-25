@@ -12,8 +12,8 @@
         <x-thead>
             <tr>
                 <th>No</th>
-                <th>Foto</th>
                 <th>Nama</th>
+                <th>Foto</th>
                 {{-- <th>Gender</th> --}}
                 <th>No Tlp</th>
                 <th>Email</th>
@@ -30,12 +30,12 @@
                 @if ($u->status == isset($_GET['deleted']))
                     <tr>
                         <td class="text-center">{{ $no++ }}</td>
+                        <td class="text-nowrap">{{ $u->nama }}</td>
                         <td class="text-center" style="width: 10%">
                             <img src="/storage/users/{{ $u->img }}" class="img-fluid" alt="">
                         </td>
-                        <td class="text-nowrap">{{ $u->nama }}</td>
                         {{-- <td class="text-nowrap">{{ $u->gender == 1 ? 'Laki-Laki' : 'Perempuan' }}</td> --}}
-                        <td class="text-nowrap">{{ $u->no_tlp }}</td>
+                        <td class="text-nowrap text-center">{{ $u->no_tlp }}</td>
                         <td class="text-nowrap">{{ $u->email }}</td>
                         <td class="text-nowrap">{{ $u->alamat }}</td>
                         {{-- <td class="text-nowrap">{{ $u->regdate ? date('d-m-Y', strtotime($u->regdate)) : '' }}</td> --}}
@@ -46,8 +46,8 @@
                                     @method('DELETE')
                                     <a href="/user/{{ $u->id }}/edit" class="btn btn-sm btn-success"><i
                                             class="fa fa-edit me-1"></i></a>
-                                    <button class="btn btn-sm btn-success"><i
-                                            class="fa fa-arrow-up me-1"></i></button>
+                                    <button class="btn btn-sm btn-primary"><i
+                                            class="fa fa-power-off me-1"></i></button>
                                 </form>
                             @else
                                 <form action="/user/{{ $u->id }}" method="POST" class="text-center">

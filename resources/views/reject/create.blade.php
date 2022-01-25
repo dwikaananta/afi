@@ -19,9 +19,7 @@
                 <x-input label="Tgl Reject" name="tgl_reject" type="date" />
             </div>
         </div>
-        <div class="btn-group">
-            <button type="submit" class="btn btn-sm btn-success">Tambah</button>
-            <a href="/reject" class="btn btn-sm btn-danger">Kembali</a>
-        </div>
+        <button type="submit" class="btn btn-sm btn-success">Tambah</button>
+        <a href="/reject" class="btn btn-sm btn-danger">Kembali</a>
     </form>
 @endsection

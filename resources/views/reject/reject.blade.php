@@ -69,7 +69,7 @@
                                     @csrf
                                     @method('DELETE')
                                     <a href="/reject/{{ $r->id }}/edit" class="btn btn-sm btn-success"><i class="fa fa-edit me-1"></i></a>
-                                    <button class="btn btn-sm btn-success"><i class="fa fa-arrow-up me-1"></i></button>
+                                    <button class="btn btn-sm btn-primary"><i class="fa fa-power-off me-1"></i></button>
                                 </form>
                             @else
                                 <form action="/reject/{{ $r->id }}" method="POST" class="text-center">

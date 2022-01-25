@@ -45,7 +45,7 @@
                                     <a href="/penjualan/{{ $p->id }}" class="btn btn-sm btn-info"><i
                                             class="fa fa-eye me-1"></i></a>
                                     {{-- <a href="/penjualan/{{ $p->id }}/edit" class="btn btn-sm btn-success"><i class="fa fa-edit me-1"></i>Ubah</a> --}}
-                                    <button class="btn btn-sm btn-success"><i class="fa fa-arrow-up me-1"></i></button>
+                                    <button class="btn btn-sm btn-primary"><i class="fa fa-power-off me-1"></i></button>
                                 </form>
                             @else
                                 <form action="/penjualan/{{ $p->id }}" method="POST" class="text-center">

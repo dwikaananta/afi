@@ -125,10 +125,10 @@
                         <div class="col">
                             <div class="text-center my-3 d-flex justify-content-center">
                                 <img src="/logo.png" class="img-fluid" style="width: 30%" alt="">
-                                <h2 class="mt-4 text-nowrap">Aplikasi Manajemen Stok Tanaman</h2>
+                                <h2 class="mt-5 text-nowrap">Aplikasi Manajemen Stok Tanaman</h2>
                             </div>
                         </div>
-                        <div class="col d-flex justify-content-end align-items-center text-white rounded pt-4">
+                        <div class="col d-flex justify-content-end align-items-center text-white rounded pt-5">
                             <div class="flex-shrink-0">
                                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQeLJOzTAW4sn22WgYxepEVozqjZWtyqLGJPQ&usqp=CAU" class="img-fluid rounded-circle border border-dark border-3 me-2" style="width: 35px; height: 35px;" alt="">
                             </div>

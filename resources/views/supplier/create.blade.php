@@ -15,9 +15,7 @@
             </div>
         </div>
         <x-textarea label="Alamat" name="alamat" />
-        <div class="btn-group">
-            <button type="submit" class="btn btn-sm btn-success">Tambah</button>
-            <a href="/supplier" class="btn btn-sm btn-danger">Kembali</a>
-        </div>
+        <button type="submit" class="btn btn-sm btn-success">Tambah</button>
+        <a href="/supplier" class="btn btn-sm btn-danger">Kembali</a>
     </form>
 @endsection
