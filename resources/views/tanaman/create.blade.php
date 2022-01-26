@@ -17,22 +17,25 @@
                 </x-select>
             </div>
             <div class="col-6">
+                <x-input label="Nama Latin" name="nama_latin" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-2">
+                <x-input label="Harga Beli" name="harga_beli" />
+            </div>
+            <div class="col-2">
+                <x-input label="Harga Jual" name="harga_jual" />
+            </div>
+            <div class="col-2">
+                <x-input label="Stok" name="stok" />
+            </div>
+            <div class="col-6">
                 <x-input label="Nama" name="nama" />
             </div>
         </div>
         <div class="row">
-            <div class="col-4">
-                <x-input label="Harga Beli" name="harga_beli" />
-            </div>
-            <div class="col-4">
-                <x-input label="Harga Jual" name="harga_jual" />
-            </div>
-            <div class="col-4">
-                <x-input label="Stok" name="stok" />
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-4">
+            <div class="col-12">
                 <x-input label="Foto" name="img" type="file" />
             </div>
         </div>

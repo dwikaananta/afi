@@ -18,18 +18,23 @@
                 </x-select>
             </div>
             <div class="col-6">
-                <x-input label="Nama" name="nama" value="{{ $tanaman->nama }}" />
+                <x-input label="Nama Latin" name="nama_latin"
+                    value="{{ count(explode('||', $tanaman->nama)) == 2 ? explode('||', $tanaman->nama)[0] : $tanaman->nama }}" />
             </div>
         </div>
         <div class="row">
-            <div class="col-4">
+            <div class="col-2">
                 <x-input label="Harga Beli" name="harga_beli" value="{{ $tanaman->harga_beli }}" />
             </div>
-            <div class="col-4">
+            <div class="col-2">
                 <x-input label="Harga Jual" name="harga_jual" value="{{ $tanaman->harga_jual }}" />
             </div>
-            <div class="col-4">
+            <div class="col-2">
                 <x-input label="Stok" name="stok" value="{{ $tanaman->stok }}" />
+            </div>
+            <div class="col-6">
+                <x-input label="Nama" name="nama"
+                    value="{{ count(explode('||', $tanaman->nama)) == 2 ? explode('||', $tanaman->nama)[1] : $tanaman->nama }}" />
             </div>
         </div>
         <div class="row mt-3">
@@ -38,7 +43,7 @@
                     <img src="/storage/tanaman/{{ $tanaman->img }}" alt="" class="img-fluid w-25">
                 </div>
             </div>
-            <div class="col-4">
+            <div class="col-12">
                 <x-input label="Foto" name="img" type="file" />
             </div>
         </div>

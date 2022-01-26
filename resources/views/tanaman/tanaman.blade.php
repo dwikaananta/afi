@@ -42,7 +42,16 @@
                             {{ $t->kategori == 6 ? 'Vines Plants' : '' }}
                         </td>
                         <td class="text-nowrap">{{ $t->kode }}</td>
-                        <td class="text-nowrap">{{ $t->nama }}</td>
+                        <td class="text-nowrap">
+                            @php
+                                $nama = explode('||', $t->nama);
+                                if (count($nama) == 2) {
+                                    echo $nama[0] . '<br />' . $nama[1];
+                                } else {
+                                    echo $t->nama;
+                                }
+                            @endphp
+                        </td>
                         <td class="text-center" style="width: 10%">
                             <img src="/storage/tanaman/{{ $t->img }}" class="img-fluid" alt="">
                         </td>
@@ -57,8 +66,7 @@
                                     @method('DELETE')
                                     <a href="/tanaman/{{ $t->id }}/edit" class="btn btn-sm btn-success"><i
                                             class="fa fa-edit me-1"></i></a>
-                                    <button class="btn btn-sm btn-primary"><i
-                                            class="fa fa-power-off me-1"></i></button>
+                                    <button class="btn btn-sm btn-primary"><i class="fa fa-power-off me-1"></i></button>
                                 </form>
                             @else
                                 <form action="/tanaman/{{ $t->id }}" method="POST" class="text-center">
@@ -66,8 +74,7 @@
                                     @method('DELETE')
                                     <a href="/tanaman/{{ $t->id }}/edit" class="btn btn-sm btn-success"><i
                                             class="fa fa-edit me-1"></i></a>
-                                    <button class="btn btn-sm btn-danger"><i
-                                            class="fa fa-power-off me-1"></i></button>
+                                    <button class="btn btn-sm btn-danger"><i class="fa fa-power-off me-1"></i></button>
                                 </form>
                             @endif
                         </td>

@@ -38,6 +38,7 @@ class TanamanController extends Controller
     {
         $req->validate([
             'kategori' => 'required',
+            'nama_latin' => 'required',
             'nama' => 'required',
             'img' => 'required|mimes:jpg,jpeg,png|max:5000',
             'harga_beli' => 'required',
@@ -67,7 +68,7 @@ class TanamanController extends Controller
         $data = [
             'kategori' => $req->kategori,
             'kode' => $this->getKodeTanaman($last_id + 1),
-            'nama' => $req->nama,
+            'nama' => $req->nama_latin . '||' . $req->nama,
             'img' => handleUpload($req),
             'harga_beli' => $req->harga_beli,
             'harga_jual' => $req->harga_jual,
@@ -118,6 +119,7 @@ class TanamanController extends Controller
     {
         $req->validate([
             'kategori' => 'required',
+            'nama_latin' => 'required',
             'nama' => 'required',
             'img' => 'mimes:jpg,jpeg,png|max:5000',
             'harga_beli' => 'required',
@@ -135,7 +137,7 @@ class TanamanController extends Controller
 
         $data = [
             'kategori' => $req->kategori,
-            'nama' => $req->nama,
+            'nama' => $req->nama_latin . '||' . $req->nama,
             'img' => handleUpdate($tanaman, $req),
             'harga_beli' => $req->harga_beli,
             'harga_jual' => $req->harga_jual,
