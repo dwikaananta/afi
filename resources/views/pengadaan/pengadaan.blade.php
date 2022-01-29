@@ -18,8 +18,8 @@
                 <th>Supplier</th>
                 <th>Tgl Pengadaan</th>
                 <th>Kode Pengadaan</th>
-                <th class="text-end">Total (Rp)</th>
-                <th></th>
+                <th>Total (Rp)</th>
+                <th>Aksi</th>
             </tr>
         </x-thead>
         @php
@@ -36,8 +36,8 @@
                         <td>
                             {{ $p->supplier ? $p->supplier->nama : '' }}
                         </td>
-                        <td>{{ date('d-m-Y', strtotime($p->tgl_pengadaan)) }}</td>
-                        <td>{{ $p->kode_pengadaan }}</td>
+                        <td class="text-center">{{ date('d-m-Y', strtotime($p->tgl_pengadaan)) }}</td>
+                        <td class="text-center">{{ $p->kode_pengadaan }}</td>
                         <td class="text-end">{{ rupiah($p->total) }}</td>
                         <td>
                             @if ($p->status == 9)

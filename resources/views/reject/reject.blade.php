@@ -4,15 +4,9 @@
 
 @section('content')
     <x-alert />
-    <div class="row text-end">
-        <div class="col">
-            <x-btn-add-data url="/reject/create" title="{{ $title }}" />
-            <x-btn-switch-status url="/reject" title="{{ $title }}" />
-        </div>
-    </div>
     <div class="row">
-        <div class="col-5">
-            <form action="" class="mb-3 d-flex" method="GET">
+        <div class="col-6 d-flex align-items-end">
+            <form action="" class="mb-3 w-100 d-flex" method="GET">
                 <select class="form-select" name="bulan">
                     <option value="">Pilih Bulan</option>
                     <option value="1" @if(isset($_GET['bulan']) && $_GET['bulan'] == 1) selected @endisset>Jan</option>
@@ -39,6 +33,12 @@
                 <button class="btn btn-sm btn-info text-white">Search</button>
             </form>
         </div>
+        <div class="col-6 text-end">
+            <div class="col">
+                <x-btn-add-data url="/reject/create" title="{{ $title }}" />
+                <x-btn-switch-status url="/reject" title="{{ $title }}" />
+            </div>
+        </div>
     </div>
     <x-table>
         <x-thead>
@@ -47,7 +47,7 @@
                 <th>Tanaman</th>
                 <th>Qty</th>
                 <th>Tanggal Reject</th>
-                <th class="text-end">Total (Rp)</th>
+                <th>Total (Rp)</th>
                 <th>Aksi</th>
             </tr>
         </x-thead>

@@ -18,8 +18,8 @@
                 <th>Kode</th>
                 <th>Nama</th>
                 <th>Foto</th>
-                <th class="text-end">Harga Beli (Rp)</th>
-                <th class="text-end">Harga Jual (Rp)</th>
+                <th class="text-nowrap">Harga Beli (Rp)</th>
+                <th class="text-nowrap">Harga Jual (Rp)</th>
                 <th>Stok</th>
                 <th>Aksi</th>
             </tr>
@@ -41,12 +41,12 @@
                             {{ $t->kategori == 5 ? 'Taro Plants' : '' }}
                             {{ $t->kategori == 6 ? 'Vines Plants' : '' }}
                         </td>
-                        <td class="text-nowrap">{{ $t->kode }}</td>
-                        <td class="text-nowrap">
+                        <td class="text-center">{{ $t->kode }}</td>
+                        <td>
                             @php
                                 $nama = explode('||', $t->nama);
                                 if (count($nama) == 2) {
-                                    echo $nama[0] . '<br />' . $nama[1];
+                                    echo $nama[0] . '<br /> (' . $nama[1] . ')';
                                 } else {
                                     echo $t->nama;
                                 }

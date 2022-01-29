@@ -125,7 +125,9 @@ Route::middleware('is_login')->group(function() {
     Route::resource('/reject', RejectController::class);
 
     Route::get('/laporan-pengadaan', function(Request $req) {
-        $pengadaan = Pengadaan::get();
+        $pengadaan = Pengadaan::when($req->bulan, fn($query) => $query->whereMonth('tgl_pengadaan', $req->bulan))
+            ->when($req->tahun, fn($query) => $query->whereYear('tgl_pengadaan', $req->tahun))
+            ->get();
         return view('laporan.pengadaan', [
             'title' => 'Laporan Pengadaan',
             'pengadaan' => $pengadaan,
@@ -140,7 +142,10 @@ Route::middleware('is_login')->group(function() {
     });
 
     Route::get('/laporan-penjualan', function(Request $req) {
-        $penjualan = Penjualan::with('user')->get();
+        $penjualan = Penjualan::with('user')
+            ->when($req->bulan, fn($query) => $query->whereMonth('tgl_penjualan', $req->bulan))
+            ->when($req->tahun, fn($query) => $query->whereYear('tgl_penjualan', $req->tahun))
+            ->get();
         return view('laporan.penjualan', [
             'title' => 'Laporan Penjualan',
             'penjualan' => $penjualan,

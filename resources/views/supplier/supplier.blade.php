@@ -14,7 +14,7 @@
                 <th>No</th>
                 <th>Nama</th>
                 <th>Email</th>
-                <th>No Tlp</th>
+                <th>No Telp</th>
                 <th>Alamat</th>
                 <th>Aksi</th>
             </tr>
@@ -29,7 +29,7 @@
                         <td class="text-center">{{ $no++ }}</td>
                         <td>{{ $s->nama }}</td>
                         <td>{{ $s->email }}</td>
-                        <td>{{ $s->no_tlp }}</td>
+                        <td class="text-center">{{ $s->no_tlp }}</td>
                         <td>{{ $s->alamat }}</td>
                         <td>
                             @if ($s->status == 9)

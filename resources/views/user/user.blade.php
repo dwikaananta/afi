@@ -15,7 +15,7 @@
                 <th>Nama</th>
                 <th>Foto</th>
                 {{-- <th>Gender</th> --}}
-                <th>No Tlp</th>
+                <th>No Telp</th>
                 <th>Email</th>
                 <th>Alamat</th>
                 {{-- <th>Reg Date</th> --}}
