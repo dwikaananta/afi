@@ -43,11 +43,22 @@
 
             <div class="my-4 border-bottom border-dark"></div>
 
+            @php
+                function getDetail($t_nama) {
+                    $nama = explode('||', $t_nama);
+                    if (count($nama) == 2) {
+                        echo $nama[0] . ' (' . $nama[1] . ')';
+                    } else {
+                        echo $t_nama;
+                    }
+                }
+            @endphp
+
             @if ($pengadaan->detail_pengadaan)
                 <table class="w-100">
                     @foreach ($pengadaan->detail_pengadaan as $dp)
                         <tr>
-                            <td class="ps-3">{{ $dp->tanaman ? $dp->tanaman->nama : '' }}</td>
+                            <td class="ps-3">{{ $dp->tanaman ? getDetail($dp->tanaman->nama) : '' }}</td>
                             <td class="text-center">{{ $dp->qty }} PCS</td>
                             <td class="text-center">{{ rupiah($dp->harga_beli) }}</td>
                             <td class="text-end pe-3">{{ rupiah($dp->qty * $dp->harga_beli) }}</td>
