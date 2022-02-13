@@ -56,10 +56,10 @@ Route::middleware('is_login')->group(function() {
 
         return view('dashboard', [
             'title' => 'Dashboard',
-            'total_tanaman' => Tanaman::sum('stok'),
+            'total_tanaman' => Tanaman::where('status', '!=', 9)->sum('stok'),
             'total_penjualan' => DB::table('count_penjualan')->sum('total_qty'),
             'total_pengadaan' => DB::table('count_pengadaan')->sum('total_qty'),
-            'total_reject' => Reject::sum('qty'),
+            'total_reject' => Reject::where('status', '!=', 9)->sum('qty'),
             'Pendapat_Januari' => Penjualan::whereYear('tgl_penjualan', $_GET['tahun'])->whereMonth('tgl_penjualan', 1)->sum('total'),
             'Pengeluaran_Januari' => Pengadaan::whereYear('tgl_pengadaan', $_GET['tahun'])->whereMonth('tgl_pengadaan', 1)->sum('total'),
             'Pendapat_Februari' => Penjualan::whereYear('tgl_penjualan', $_GET['tahun'])->whereMonth('tgl_penjualan', 2)->sum('total'),
