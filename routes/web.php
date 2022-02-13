@@ -39,7 +39,7 @@ Route::post('/auth', function(Request $req) {
         'password' => ['required'],
     ]);
 
-    if (Auth::attempt($credentials)) {
+    if (Auth::attempt(['email' => $req->email, 'password' => $req->password, 'status' => null])) {
         $req->session()->regenerate();
 
         return redirect()->intended('/dashboard?tahun=' . date('Y'))->with('success', 'Login sukses');
