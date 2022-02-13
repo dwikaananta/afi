@@ -20,6 +20,7 @@ class CreatePengadaanTable extends Migration
             $table->date('tgl_pengadaan')->nullable();
             $table->string('nota_pengadaan', 30)->nullable();
             $table->integer('total')->nullable();
+            $table->integer('status')->nullable();
             $table->timestamps();
         });
     }

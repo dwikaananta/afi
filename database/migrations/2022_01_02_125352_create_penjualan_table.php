@@ -21,6 +21,7 @@ class CreatePenjualanTable extends Migration
             $table->string('nama', 100)->nullable();
             $table->string('no_tlp', 20)->nullable();
             $table->integer('total')->nullable();
+            $table->integer('status')->nullable();
             $table->timestamps();
         });
     }
