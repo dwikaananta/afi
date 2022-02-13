@@ -15,7 +15,7 @@ class Pengadaan extends Model
         'user_id',
         'supplier_id',
         'tgl_pengadaan',
-        'kode_pengadaan',
+        'nota_pengadaan',
         'total',
         'status',
     ];

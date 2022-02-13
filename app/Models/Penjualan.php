@@ -14,7 +14,7 @@ class Penjualan extends Model
     protected $fillable = [
         'user_id',
         'tgl_penjualan',
-        'kode_penjualan',
+        'nota_penjualan',
         'nama',
         'no_tlp',
         'total',
