@@ -1,5 +1,7 @@
 @extends('layouts.main')
 
+@include('layouts.helper')
+
 @section('content')
     <x-alert />
 
@@ -113,30 +115,30 @@
             datasets: [{
                 label: "Data Tahun {{ $_GET['tahun'] }}",
                 data: [
-                    '{{ $Pendapat_Januari }}',
-                    '{{ $Pengeluaran_Januari }}',
-                    '{{ $Pendapat_Februari }}',
-                    '{{ $Pengeluaran_Februari }}',
-                    '{{ $Pendapat_Maret }}',
-                    '{{ $Pengeluaran_Maret }}',
-                    '{{ $Pendapat_April }}',
-                    '{{ $Pengeluaran_April }}',
-                    '{{ $Pendapat_Mai }}',
-                    '{{ $Pengeluaran_Mai }}',
-                    '{{ $Pendapat_Juni }}',
-                    '{{ $Pengeluaran_Juni }}',
-                    '{{ $Pendapat_Juli }}',
-                    '{{ $Pengeluaran_Juli }}',
-                    '{{ $Pendapat_Agustus }}',
-                    '{{ $Pengeluaran_Agustus }}',
-                    '{{ $Pendapat_September }}',
-                    '{{ $Pengeluaran_September }}',
-                    '{{ $Pendapat_Oktober }}',
-                    '{{ $Pengeluaran_Oktober }}',
-                    '{{ $Pendapat_November }}',
-                    '{{ $Pengeluaran_November }}',
-                    '{{ $Pendapat_Desember }}',
-                    '{{ $Pengeluaran_Desember }}',
+                    '{{ rupiah($Pendapat_Januari) }}',
+                    '{{ rupiah($Pengeluaran_Januari) }}',
+                    '{{ rupiah($Pendapat_Februari) }}',
+                    '{{ rupiah($Pengeluaran_Februari) }}',
+                    '{{ rupiah($Pendapat_Maret) }}',
+                    '{{ rupiah($Pengeluaran_Maret) }}',
+                    '{{ rupiah($Pendapat_April) }}',
+                    '{{ rupiah($Pengeluaran_April) }}',
+                    '{{ rupiah($Pendapat_Mai) }}',
+                    '{{ rupiah($Pengeluaran_Mai) }}',
+                    '{{ rupiah($Pendapat_Juni) }}',
+                    '{{ rupiah($Pengeluaran_Juni) }}',
+                    '{{ rupiah($Pendapat_Juli) }}',
+                    '{{ rupiah($Pengeluaran_Juli) }}',
+                    '{{ rupiah($Pendapat_Agustus) }}',
+                    '{{ rupiah($Pengeluaran_Agustus) }}',
+                    '{{ rupiah($Pendapat_September) }}',
+                    '{{ rupiah($Pengeluaran_September) }}',
+                    '{{ rupiah($Pendapat_Oktober) }}',
+                    '{{ rupiah($Pengeluaran_Oktober) }}',
+                    '{{ rupiah($Pendapat_November) }}',
+                    '{{ rupiah($Pengeluaran_November) }}',
+                    '{{ rupiah($Pendapat_Desember) }}',
+                    '{{ rupiah($Pengeluaran_Desember) }}',
                 ],
                 backgroundColor: [
                     'rgba(75, 192, 192, 0.7)',
