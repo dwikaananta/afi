@@ -17,7 +17,7 @@ class CreatePenjualanTable extends Migration
             $table->id();
             $table->bigInteger('user_id')->nullable();
             $table->date('tgl_penjualan')->nullable();
-            $table->string('kode_penjualan', 30)->nullable();
+            $table->string('nota_penjualan', 30)->nullable();
             $table->string('nama', 100)->nullable();
             $table->string('no_tlp', 20)->nullable();
             $table->integer('total')->nullable();

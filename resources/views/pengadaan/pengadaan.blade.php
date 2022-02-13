@@ -17,7 +17,7 @@
                 <th>User</th>
                 <th>Supplier</th>
                 <th>Tgl Pengadaan</th>
-                <th>Kode Pengadaan</th>
+                <th>Nota Pengadaan</th>
                 <th>Total (Rp)</th>
                 <th>Aksi</th>
             </tr>
@@ -37,7 +37,7 @@
                             {{ $p->supplier ? $p->supplier->nama : '' }}
                         </td>
                         <td class="text-center">{{ date('d-m-Y', strtotime($p->tgl_pengadaan)) }}</td>
-                        <td class="text-center">{{ $p->kode_pengadaan }}</td>
+                        <td class="text-center">{{ $p->nota_pengadaan }}</td>
                         <td class="text-end">{{ rupiah($p->total) }}</td>
                         <td>
                             @if ($p->status == 9)

@@ -40,7 +40,7 @@
                 <th>User</th>
                 <th>Supplier</th>
                 <th>Tgl Pengadaan</th>
-                <th>Kode Pengadaan</th>
+                <th>Nota Pengadaan</th>
                 <th>Total (Rp)</th>
                 <th>Aksi</th>
                 {{-- <th></th> --}}
@@ -57,7 +57,7 @@
                         <td>{{ $p->user ? $p->user->nama : '' }}</td>
                         <td>{{ $p->supplier ? $p->supplier->nama : '' }}</td>
                         <td class="text-center">{{ $p->tgl_pengadaan }}</td>
-                        <td class="text-center">{{ $p->kode_pengadaan }}</td>
+                        <td class="text-center">{{ $p->nota_pengadaan }}</td>
                         <td class="text-end">{{ rupiah($p->total) }}</td>
                         <td class="text-center">
                             <a href="/pengadaan-detail/{{ $p->id }}">Detail</a>
@@ -88,4 +88,10 @@
             @endforeach
         </tbody>
     </x-table>
+
+    <div class="text-center">
+        @if (isset($_GET['bulan']) && $_GET['bulan'] != '' && isset($_GET['tahun']) && $_GET['tahun'] != '')
+            <a href="/laporan-pengadaan-print?bulan={{ $_GET['bulan'] }}&tahun={{ $_GET['tahun'] }}" class="btn btn-info text-white">Print</a>
+        @endif
+    </div>
 @endsection

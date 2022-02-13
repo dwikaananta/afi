@@ -51,7 +51,7 @@
                             {tanaman.length > 0 && tanaman.map((t,index) => {
                                 return (
                                     <React.Fragment key={index}>
-                                        <option value={`${t.id}_${t.harga_jual}`}>{t.kode + ' '}{t.nama.split('||').length > 1 ? `${t.nama.split('||')[0]} (${t.nama.split('||')[1]})` : t.nama}</option>
+                                        <option value={`${t.id}_${t.harga_jual}`}>{t.nama.split('||').length > 1 ? `${t.nama.split('||')[0]} (${t.nama.split('||')[1]})` : t.nama}</option>
                                     </React.Fragment>
                                 )
                             })}

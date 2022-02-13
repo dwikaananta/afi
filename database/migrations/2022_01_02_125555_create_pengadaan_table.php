@@ -18,7 +18,7 @@ class CreatePengadaanTable extends Migration
             $table->bigInteger('user_id')->nullable();
             $table->bigInteger('supplier_id')->nullable();
             $table->date('tgl_pengadaan')->nullable();
-            $table->string('kode_pengadaan', 30)->nullable();
+            $table->string('nota_pengadaan', 30)->nullable();
             $table->integer('total')->nullable();
             $table->timestamps();
         });

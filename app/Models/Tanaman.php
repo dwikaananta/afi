@@ -13,7 +13,7 @@ class Tanaman extends Model
 
     protected $fillable = [
         'kategori',
-        'kode',
+        // 'kode',
         'nama',
         'img',
         'harga_beli',

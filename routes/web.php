@@ -14,6 +14,7 @@ use App\Models\Tanaman;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Route;
 
@@ -55,34 +56,34 @@ Route::middleware('is_login')->group(function() {
 
         return view('dashboard', [
             'title' => 'Dashboard',
-            'total_tanaman' => Tanaman::count(),
-            'total_penjualan' => Penjualan::count(),
-            'total_pengadaan' => Pengadaan::count(),
-            'total_reject' => Reject::count(),
-            'Pendapat_Januari' => Penjualan::whereYear('tgl_penjualan', $_GET['tahun'])->whereMonth('tgl_penjualan', 1)->count(),
-            'Pengeluaran_Januari' => Pengadaan::whereYear('tgl_pengadaan', $_GET['tahun'])->whereMonth('tgl_pengadaan', 1)->count(),
-            'Pendapat_Februari' => Penjualan::whereYear('tgl_penjualan', $_GET['tahun'])->whereMonth('tgl_penjualan', 2)->count(),
-            'Pengeluaran_Februari' => Pengadaan::whereYear('tgl_pengadaan', $_GET['tahun'])->whereMonth('tgl_pengadaan', 2)->count(),
-            'Pendapat_Maret' => Penjualan::whereYear('tgl_penjualan', $_GET['tahun'])->whereMonth('tgl_penjualan', 3)->count(),
-            'Pengeluaran_Maret' => Pengadaan::whereYear('tgl_pengadaan', $_GET['tahun'])->whereMonth('tgl_pengadaan', 3)->count(),
-            'Pendapat_April' => Penjualan::whereYear('tgl_penjualan', $_GET['tahun'])->whereMonth('tgl_penjualan', 4)->count(),
-            'Pengeluaran_April' => Pengadaan::whereYear('tgl_pengadaan', $_GET['tahun'])->whereMonth('tgl_pengadaan', 4)->count(),
-            'Pendapat_Mai' => Penjualan::whereYear('tgl_penjualan', $_GET['tahun'])->whereMonth('tgl_penjualan', 5)->count(),
-            'Pengeluaran_Mai' => Pengadaan::whereYear('tgl_pengadaan', $_GET['tahun'])->whereMonth('tgl_pengadaan', 5)->count(),
-            'Pendapat_Juni' => Penjualan::whereYear('tgl_penjualan', $_GET['tahun'])->whereMonth('tgl_penjualan', 6)->count(),
-            'Pengeluaran_Juni' => Pengadaan::whereYear('tgl_pengadaan', $_GET['tahun'])->whereMonth('tgl_pengadaan', 6)->count(),
-            'Pendapat_Juli' => Penjualan::whereYear('tgl_penjualan', $_GET['tahun'])->whereMonth('tgl_penjualan', 7)->count(),
-            'Pengeluaran_Juli' => Pengadaan::whereYear('tgl_pengadaan', $_GET['tahun'])->whereMonth('tgl_pengadaan', 7)->count(),
-            'Pendapat_Agustus' => Penjualan::whereYear('tgl_penjualan', $_GET['tahun'])->whereMonth('tgl_penjualan', 9)->count(),
-            'Pengeluaran_Agustus' => Pengadaan::whereYear('tgl_pengadaan', $_GET['tahun'])->whereMonth('tgl_pengadaan', 9)->count(),
-            'Pendapat_September' => Penjualan::whereYear('tgl_penjualan', $_GET['tahun'])->whereMonth('tgl_penjualan', 9)->count(),
-            'Pengeluaran_September' => Pengadaan::whereYear('tgl_pengadaan', $_GET['tahun'])->whereMonth('tgl_pengadaan', 9)->count(),
-            'Pendapat_Oktober' => Penjualan::whereYear('tgl_penjualan', $_GET['tahun'])->whereMonth('tgl_penjualan', 10)->count(),
-            'Pengeluaran_Oktober' => Pengadaan::whereYear('tgl_pengadaan', $_GET['tahun'])->whereMonth('tgl_pengadaan', 10)->count(),
-            'Pendapat_November' => Penjualan::whereYear('tgl_penjualan', $_GET['tahun'])->whereMonth('tgl_penjualan', 11)->count(),
-            'Pengeluaran_November' => Pengadaan::whereYear('tgl_pengadaan', $_GET['tahun'])->whereMonth('tgl_pengadaan', 11)->count(),
-            'Pendapat_Desember' => Penjualan::whereYear('tgl_penjualan', $_GET['tahun'])->whereMonth('tgl_penjualan', 12)->count(),
-            'Pengeluaran_Desember' => Pengadaan::whereYear('tgl_pengadaan', $_GET['tahun'])->whereMonth('tgl_pengadaan', 12)->count(),
+            'total_tanaman' => Tanaman::sum('stok'),
+            'total_penjualan' => DB::table('count_penjualan')->sum('total_qty'),
+            'total_pengadaan' => DB::table('count_pengadaan')->sum('total_qty'),
+            'total_reject' => Reject::sum('qty'),
+            'Pendapat_Januari' => DB::table('count_penjualan')->whereYear('tgl_penjualan', $_GET['tahun'])->whereMonth('tgl_penjualan', 1)->sum('total_qty'),
+            'Pengeluaran_Januari' => DB::table('count_pengadaan')->whereYear('tgl_pengadaan', $_GET['tahun'])->whereMonth('tgl_pengadaan', 1)->sum('total_qty'),
+            'Pendapat_Februari' => DB::table('count_penjualan')->whereYear('tgl_penjualan', $_GET['tahun'])->whereMonth('tgl_penjualan', 2)->sum('total_qty'),
+            'Pengeluaran_Februari' => DB::table('count_pengadaan')->whereYear('tgl_pengadaan', $_GET['tahun'])->whereMonth('tgl_pengadaan', 2)->sum('total_qty'),
+            'Pendapat_Maret' => DB::table('count_penjualan')->whereYear('tgl_penjualan', $_GET['tahun'])->whereMonth('tgl_penjualan', 3)->sum('total_qty'),
+            'Pengeluaran_Maret' => DB::table('count_pengadaan')->whereYear('tgl_pengadaan', $_GET['tahun'])->whereMonth('tgl_pengadaan', 3)->sum('total_qty'),
+            'Pendapat_April' => DB::table('count_penjualan')->whereYear('tgl_penjualan', $_GET['tahun'])->whereMonth('tgl_penjualan', 4)->sum('total_qty'),
+            'Pengeluaran_April' => DB::table('count_pengadaan')->whereYear('tgl_pengadaan', $_GET['tahun'])->whereMonth('tgl_pengadaan', 4)->sum('total_qty'),
+            'Pendapat_Mai' => DB::table('count_penjualan')->whereYear('tgl_penjualan', $_GET['tahun'])->whereMonth('tgl_penjualan', 5)->sum('total_qty'),
+            'Pengeluaran_Mai' => DB::table('count_pengadaan')->whereYear('tgl_pengadaan', $_GET['tahun'])->whereMonth('tgl_pengadaan', 5)->sum('total_qty'),
+            'Pendapat_Juni' => DB::table('count_penjualan')->whereYear('tgl_penjualan', $_GET['tahun'])->whereMonth('tgl_penjualan', 6)->sum('total_qty'),
+            'Pengeluaran_Juni' => DB::table('count_pengadaan')->whereYear('tgl_pengadaan', $_GET['tahun'])->whereMonth('tgl_pengadaan', 6)->sum('total_qty'),
+            'Pendapat_Juli' => DB::table('count_penjualan')->whereYear('tgl_penjualan', $_GET['tahun'])->whereMonth('tgl_penjualan', 7)->sum('total_qty'),
+            'Pengeluaran_Juli' => DB::table('count_pengadaan')->whereYear('tgl_pengadaan', $_GET['tahun'])->whereMonth('tgl_pengadaan', 7)->sum('total_qty'),
+            'Pendapat_Agustus' => DB::table('count_penjualan')->whereYear('tgl_penjualan', $_GET['tahun'])->whereMonth('tgl_penjualan', 9)->sum('total_qty'),
+            'Pengeluaran_Agustus' => DB::table('count_pengadaan')->whereYear('tgl_pengadaan', $_GET['tahun'])->whereMonth('tgl_pengadaan', 9)->sum('total_qty'),
+            'Pendapat_September' => DB::table('count_penjualan')->whereYear('tgl_penjualan', $_GET['tahun'])->whereMonth('tgl_penjualan', 9)->sum('total_qty'),
+            'Pengeluaran_September' => DB::table('count_pengadaan')->whereYear('tgl_pengadaan', $_GET['tahun'])->whereMonth('tgl_pengadaan', 9)->sum('total_qty'),
+            'Pendapat_Oktober' => DB::table('count_penjualan')->whereYear('tgl_penjualan', $_GET['tahun'])->whereMonth('tgl_penjualan', 10)->sum('total_qty'),
+            'Pengeluaran_Oktober' => DB::table('count_pengadaan')->whereYear('tgl_pengadaan', $_GET['tahun'])->whereMonth('tgl_pengadaan', 10)->sum('total_qty'),
+            'Pendapat_November' => DB::table('count_penjualan')->whereYear('tgl_penjualan', $_GET['tahun'])->whereMonth('tgl_penjualan', 11)->sum('total_qty'),
+            'Pengeluaran_November' => DB::table('count_pengadaan')->whereYear('tgl_pengadaan', $_GET['tahun'])->whereMonth('tgl_pengadaan', 11)->sum('total_qty'),
+            'Pendapat_Desember' => DB::table('count_penjualan')->whereYear('tgl_penjualan', $_GET['tahun'])->whereMonth('tgl_penjualan', 12)->sum('total_qty'),
+            'Pengeluaran_Desember' => DB::table('count_pengadaan')->whereYear('tgl_pengadaan', $_GET['tahun'])->whereMonth('tgl_pengadaan', 12)->sum('total_qty'),
 
             'pie_2' => DetailPenjualan::whereHas('tanaman', function($query) {
                 return $query->where('kategori', 2);
@@ -166,6 +167,26 @@ Route::middleware('is_login')->group(function() {
             ->latest()->get();
         return view('laporan.reject', [
             'reject' => $reject,
+        ]);
+    });
+
+    Route::get('/laporan-pengadaan-print', function(Request $req) {
+        $pengadaan = Pengadaan::with('user', 'supplier', 'detail_pengadaan')
+            ->when($req->bulan, fn($query) => $query->whereMonth('tgl_pengadaan', $req->bulan))
+            ->when($req->tahun, fn($query) => $query->whereYear('tgl_pengadaan', $req->tahun))
+            ->latest()->get();
+        return view('laporan.pengadaan-print', [
+            'pengadaan' => $pengadaan,
+        ]);
+    });
+
+    Route::get('/laporan-penjualan-print', function(Request $req) {
+        $penjualan = Penjualan::with('user', 'detail_penjualan')
+            ->when($req->bulan, fn($query) => $query->whereMonth('tgl_penjualan', $req->bulan))
+            ->when($req->tahun, fn($query) => $query->whereYear('tgl_penjualan', $req->tahun))
+            ->latest()->get();
+        return view('laporan.penjualan-print', [
+            'penjualan' => $penjualan,
         ]);
     });
 

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateDetailPengadaanTable extends Migration
+class CreateCountPenjualanTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,10 @@ class CreateDetailPengadaanTable extends Migration
      */
     public function up()
     {
-        Schema::create('detail_pengadaan', function (Blueprint $table) {
+        Schema::create('count_penjualan', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('tanaman_id')->nullable();
-            $table->bigInteger('pengadaan_id')->nullable();
-            $table->integer('qty')->nullable();
-            $table->integer('harga_beli')->nullable();
+            $table->integer('total_qty')->nullable();
+            $table->date('tgl_penjualan')->nullable();
             $table->timestamps();
         });
     }
@@ -30,6 +28,6 @@ class CreateDetailPengadaanTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('detail_pengadaan');
+        Schema::dropIfExists('count_penjualan');
     }
 }

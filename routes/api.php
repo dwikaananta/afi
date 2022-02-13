@@ -8,6 +8,7 @@ use App\Models\Penjualan;
 use App\Models\Supplier;
 use App\Models\Tanaman;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -57,7 +58,7 @@ Route::post('/pengadaan', function(Request $req) {
         'user_id' => $req->user_id,
         'supplier_id' => $req->supplier_id,
         'tgl_pengadaan' => $req->tgl_pengadaan,
-        'kode_pengadaan' => get_kode_ada($last_id + 1),
+        'nota_pengadaan' => get_kode_ada($last_id + 1),
     ];
 
     $peng = Pengadaan::create($pengadaan);
@@ -87,6 +88,7 @@ Route::post('/pengadaan', function(Request $req) {
     }
 
     $total = 0;
+    $total_qty = 0;
     foreach ($req->detail as $d) {
         DetailPengadaan::create([
             'tanaman_id' => $d['tanaman_id'],
@@ -96,6 +98,7 @@ Route::post('/pengadaan', function(Request $req) {
         ]);
 
         $total += $d['total'];
+        $total_qty += $d['qty'];
 
         $tanaman = Tanaman::find($d['tanaman_id']);
 
@@ -103,7 +106,7 @@ Route::post('/pengadaan', function(Request $req) {
             $last_id_log = LogHarga::max('id');
         
             LogHarga::create([
-                'kode' => getKodeLogHarga($last_id_log + 1),
+                // 'kode' => getKodeLogHarga($last_id_log + 1),
                 'tanaman_id' => $tanaman->id,
                 'harga_beli' => getNewHarga($tanaman, $d),
             ]);
@@ -120,6 +123,11 @@ Route::post('/pengadaan', function(Request $req) {
             ]);
         }
     }
+
+    DB::table('count_pengadaan')->insert([
+        'total_qty' => $total_qty,
+        'tgl_pengadaan' => $req->tgl_pengadaan,
+    ]);
 
     $peng->update(['total' => $total]);
 
@@ -145,7 +153,7 @@ Route::post('/penjualan', function(Request $req) {
     $penjualan = [
         'user_id' => $req->user_id,
         'tgl_penjualan' => $req->tgl_penjualan,
-        'kode_penjualan' => get_kode_jual($last_id + 1),
+        'nota_penjualan' => get_kode_jual($last_id + 1),
         'nama' => $req->nama,
         'no_tlp' => $req->no_tlp,
     ];
@@ -153,6 +161,7 @@ Route::post('/penjualan', function(Request $req) {
     $pen = Penjualan::create($penjualan);
 
     $total = 0;
+    $total_qty = 0;
     foreach ($req->detail as $d) {
         DetailPenjualan::create([
             'tanaman_id' => $d['tanaman_id'],
@@ -162,6 +171,7 @@ Route::post('/penjualan', function(Request $req) {
         ]);
 
         $total += $d['total'];
+        $total_qty += $d['qty'];
 
         $tanaman = Tanaman::find($d['tanaman_id']);
 
@@ -174,6 +184,11 @@ Route::post('/penjualan', function(Request $req) {
             $tanaman->update(['stok' => $newStok]);
         }
     }
+
+    DB::table('count_penjualan')->insert([
+        'total_qty' => $total_qty,
+        'tgl_penjualan' => $req->tgl_penjualan,
+    ]);
 
     $pen->update(['total' => $total]);
 

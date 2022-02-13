@@ -15,7 +15,7 @@
             <tr>
                 <th>No</th>
                 <th>Kategori</th>
-                <th>Kode</th>
+                {{-- <th>Kode</th> --}}
                 <th>Nama</th>
                 <th>Foto</th>
                 <th class="text-nowrap">Harga Beli (Rp)</th>
@@ -41,7 +41,7 @@
                             {{ $t->kategori == 5 ? 'Taro Plants' : '' }}
                             {{ $t->kategori == 6 ? 'Vines Plants' : '' }}
                         </td>
-                        <td class="text-center">{{ $t->kode }}</td>
+                        {{-- <td class="text-center">{{ $t->kode }}</td> --}}
                         <td>
                             @php
                                 $nama = explode('||', $t->nama);

@@ -3,12 +3,24 @@
 @section('content')
     <form action="/reject" method="POST">
         @csrf
+
+        @php
+            function getDetail($t_nama) {
+                $nama = explode('||', $t_nama);
+                if (count($nama) == 2) {
+                    echo $nama[0] . ' (' . $nama[1] . ')';
+                } else {
+                    echo $t_nama;
+                }
+            }
+        @endphp
+
         <div class="row mb-2">
             <div class="col-6">
                 <x-select label="Tanaman" name="tanaman_id">
                     <option value="">Pilih</option>
                     @foreach ($tanaman as $t)
-                        <option value="{{ $t->id }}">{{ $t->nama }}</option>
+                        <option value="{{ $t->id }}">{{ $t->kode }} {{ getDetail($t->nama) }}</option>
                     @endforeach
                 </x-select>
             </div>

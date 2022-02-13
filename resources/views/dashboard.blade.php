@@ -5,7 +5,7 @@
 
     <div class="row">
         <div class="col-3 text-center text-white p-3">
-            <div class="bg-primary p-3">
+            <div class="bg-warning p-3">
                 <p class="m-0">Total Stock</p>
                 <h3 class="m-0">{{ $total_tanaman }}</h3>
             </div>
@@ -17,13 +17,13 @@
             </div>
         </div>
         <div class="col-3 text-center text-white p-3">
-            <div class="bg-primary p-3">
+            <div class="bg-info p-3">
                 <p class="m-0">Total Penjualan</p>
                 <h3 class="m-0">{{ $total_penjualan }}</h3>
             </div>
         </div>
         <div class="col-3 text-center text-white p-3">
-            <div class="bg-primary p-3">
+            <div class="bg-danger p-3">
                 <p class="m-0">Total Reject</p>
                 <h3 class="m-0">{{ $total_reject }}</h3>
             </div>
@@ -52,7 +52,7 @@
     </div>
 
     <div class="row">
-        <div class="col-6">
+        {{-- <div class="col-6">
             <div class="text-center">
                 <h3>Kategori Tanaman Paling Laris {{ $_GET['tahun'] }}</h3>
             </div>
@@ -60,7 +60,7 @@
             <div class="mb-4 w-50 m-auto">
                 <canvas id="myPie"></canvas>
             </div>
-        </div>
+        </div> --}}
     
         {{-- <div class="col-6">
             <div class="text-center">

@@ -10,14 +10,14 @@ class TanamanController extends Controller
 {
     public function index()
     {
-        $non_kode = Tanaman::whereNull('kode')->get();
-        if ($non_kode) {
-            foreach ($non_kode as $nk) {
-                $nk->update([
-                    'kode' => $this->getKodeTanaman($nk->id),
-                ]);
-            }
-        }
+        // $non_kode = Tanaman::whereNull('kode')->get();
+        // if ($non_kode) {
+        //     foreach ($non_kode as $nk) {
+        //         $nk->update([
+        //             'kode' => $this->getKodeTanaman($nk->id),
+        //         ]);
+        //     }
+        // }
 
         $tanaman = Tanaman::with('log_harga')->orderBy('kategori')->orderBy('nama')->get();
 
@@ -67,7 +67,7 @@ class TanamanController extends Controller
 
         $data = [
             'kategori' => $req->kategori,
-            'kode' => $this->getKodeTanaman($last_id + 1),
+            // 'kode' => $this->getKodeTanaman($last_id + 1),
             'nama' => $req->nama_latin . '||' . $req->nama,
             'img' => handleUpload($req),
             'harga_beli' => $req->harga_beli,
@@ -94,7 +94,7 @@ class TanamanController extends Controller
         $last_id_log = LogHarga::max('id');
 
         LogHarga::create([
-            'kode' => getKodeLogHarga($last_id_log + 1),
+            // 'kode' => getKodeLogHarga($last_id_log + 1),
             'tanaman_id' => $tanaman->id,
             'harga_beli' => $req->harga_beli,
         ]);

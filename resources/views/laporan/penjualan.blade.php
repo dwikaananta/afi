@@ -39,7 +39,7 @@
                 <th>No</th>
                 <th>User</th>
                 <th>Tgl Penjualan</th>
-                <th>Kode Penjualan</th>
+                <th>Nota Penjualan</th>
                 <th>Nama Customer</th>
                 <th>No Telp</th>
                 <th>Total (Rp)</th>
@@ -57,7 +57,7 @@
                         <td class="text-center">{{ $no++ }}</td>
                         <td>{{ $p->user ? $p->user->nama : '' }}</td>
                         <td class="text-center">{{ $p->tgl_penjualan }}</td>
-                        <td class="text-center">{{ $p->kode_penjualan }}</td>
+                        <td class="text-center">{{ $p->nota_penjualan }}</td>
                         <td>{{ $p->nama }}</td>
                         <td class="text-center">{{ $p->no_tlp }}</td>
                         <td class="text-end">{{ rupiah($p->total) }}</td>
@@ -90,4 +90,10 @@
             @endforeach
         </tbody>
     </x-table>
+
+    <div class="text-center">
+        @if (isset($_GET['bulan']) && $_GET['bulan'] != '' && isset($_GET['tahun']) && $_GET['tahun'] != '')
+            <a href="/laporan-penjualan-print?bulan={{ $_GET['bulan'] }}&tahun={{ $_GET['tahun'] }}" class="btn btn-info text-white">Print</a>
+        @endif
+    </div>
 @endsection

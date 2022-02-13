@@ -18,6 +18,7 @@ class CreateRejectTable extends Migration
             $table->bigInteger('tanaman_id')->nullable();
             $table->integer('qty')->nullable();
             $table->integer('total')->nullable();
+            $table->date('tgl_reject')->nullable();
             $table->tinyInteger('status')->nullable();
             $table->timestamps();
         });

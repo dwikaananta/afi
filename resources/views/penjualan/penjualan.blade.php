@@ -16,7 +16,7 @@
                 <th>No</th>
                 <th>User</th>
                 <th>Tgl Penjualan</th>
-                <th>Kode Penjualan</th>
+                <th>Nota Penjualan</th>
                 <th>Nama</th>
                 <th>No Telp</th>
                 <th>Total (Rp)</th>
@@ -33,7 +33,7 @@
                         <td class="text-center">{{ $no ++ }}</td>
                         <td>{{ $p->user ? $p->user->nama : '' }}</td>
                         <td class="text-center">{{ $p->tgl_penjualan }}</td>
-                        <td class="text-center">{{ $p->kode_penjualan }}</td>
+                        <td class="text-center">{{ $p->nota_penjualan }}</td>
                         <td>{{ $p->nama }}</td>
                         <td>{{ $p->no_tlp }}</td>
                         <td class="text-end">{{ rupiah($p->total) }}</td>

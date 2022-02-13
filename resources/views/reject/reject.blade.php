@@ -4,7 +4,7 @@
 
 @section('content')
     <x-alert />
-    {{-- <div class="row">
+    <div class="row justify-content-end">
         <div class="col-6 d-flex align-items-end">
             <form action="" class="mb-3 w-100 d-flex" method="GET">
                 <select class="form-select" name="bulan">
@@ -39,7 +39,7 @@
                 <x-btn-switch-status url="/reject" title="{{ $title }}" />
             </div>
         </div>
-    </div> --}}
+    </div>
     <x-table>
         <x-thead>
             <tr>

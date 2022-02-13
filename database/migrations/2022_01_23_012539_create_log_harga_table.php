@@ -15,7 +15,6 @@ class CreateLogHargaTable extends Migration
     {
         Schema::create('log_harga', function (Blueprint $table) {
             $table->id();
-            $table->char('kode', 8)->nullable();
             $table->bigInteger('tanaman_id')->nullable();
             $table->integer('harga_beli')->nullable();
             $table->timestamps();
