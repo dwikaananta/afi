@@ -8,12 +8,12 @@
                 <x-select label="Kategori" name="kategori">
                     <option value="">Pilih</option>
                     {{-- <option value="1">Palm plants</option> --}}
-                    <option value="1">Aglaonema Plants</option>
-                    <option value="2">Bonsai Plants</option>
-                    <option value="3">Decorative Plants</option>
-                    <option value="4">Greenery Plants</option>
-                    <option value="5">Taro Plants</option>
-                    <option value="6">Vines Plants</option>
+                    <option value="1" {{ old('kategori') == '1' ? 'selected' : '' }}>Aglaonema Plants</option>
+                    <option value="2" {{ old('kategori') == '2' ? 'selected' : '' }}>Bonsai Plants</option>
+                    <option value="3" {{ old('kategori') == '3' ? 'selected' : '' }}>Decorative Plants</option>
+                    <option value="4" {{ old('kategori') == '4' ? 'selected' : '' }}>Greenery Plants</option>
+                    <option value="5" {{ old('kategori') == '5' ? 'selected' : '' }}>Taro Plants</option>
+                    <option value="6" {{ old('kategori') == '6' ? 'selected' : '' }}>Vines Plants</option>
                 </x-select>
             </div>
             <div class="col-6">

@@ -59,7 +59,18 @@
                 @if ($r->status == isset($_GET['deleted']))
                     <tr>
                         <td class="text-center">{{ $no ++ }}</td>
-                        <td>{{ $r->tanaman ? $r->tanaman->nama : '' }}</td>
+                        <td>
+                            @php
+                                if ($r->tanaman) {
+                                    $nama = explode('||', $r->tanaman->nama);
+                                    if (count($nama) == 2) {
+                                        echo $nama[0] . '<br /> (' . $nama[1] . ')';
+                                    } else {
+                                        echo $r->tanaman->nama;
+                                    }
+                                }
+                            @endphp
+                        </td>
                         <td>{{ $r->qty }}</td>
                         <td>{{ $r->tgl_reject ? date('d-m-Y', strtotime($r->tgl_reject)) : '' }}</td>
                         <td class="text-end">{{ rupiah($r->total) }}</td>

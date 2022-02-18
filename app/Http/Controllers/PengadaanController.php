@@ -7,6 +7,7 @@ use App\Models\Supplier;
 use App\Models\Tanaman;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class PengadaanController extends Controller
 {
@@ -35,13 +36,14 @@ class PengadaanController extends Controller
             'total' => 'required',
         ]);
 
-        function get_kode($last_id) {
+        function get_kode($last_id)
+        {
             $default = 7;
             $length_id = strlen($last_id);
             $range = $default - $length_id;
 
             $data = '';
-            for ($i=0; $i < $range; $i++) { 
+            for ($i = 0; $i < $range; $i++) {
                 $data = $data . '0';
             }
 
