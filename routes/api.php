@@ -49,7 +49,7 @@ Route::post('/pengadaan', function(Request $req) {
             $data = $data . '0';
         }
 
-        return 'KP' . $data . $last_id;
+        return 'NP' . $data . $last_id;
     }
 
     $last_id = Pengadaan::max('id');
@@ -145,7 +145,7 @@ Route::post('/penjualan', function(Request $req) {
             $data = $data . '0';
         }
 
-        return 'KJ' . $data . $last_id;
+        return 'NJ' . $data . $last_id;
     }
 
     $last_id = Penjualan::max('id');
