@@ -30,7 +30,7 @@
                     : {{ date('d-m-Y', strtotime($penjualan->tgl_penjualan)) }}
                 </div>
                 <div class="col-3 ps-5">
-                    Kode Penjualan
+                    Nota Penjualan
                 </div>
                 <div class="col-9">
                     : {{ $penjualan->kode_penjualan }}
