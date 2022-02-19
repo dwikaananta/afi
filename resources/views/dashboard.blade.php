@@ -46,7 +46,7 @@
 
     <div class="row my-3 px-4">
         <div class="py-3 text-white col-6 text-center" style="background-color: rgba(75, 192, 192, 0.7)">Pendapatan</div>
-        <div class="py-3 col-6 text-center" style="background-color: rgba(75, 192, 192, 0.2)">Pengluaran</div>
+        <div class="py-3 col-6 text-center" style="background-color: rgba(75, 192, 192, 0.2)">Pengeluaran</div>
     </div>
 
     <div class="mb-4">
@@ -84,30 +84,30 @@
 @section('js')
     <script>
         const labels = [
-            'Pendapat Januari',
-            'Pengeluaran Januari',
-            'Pendapat Februari',
-            'Pengeluaran Februari',
-            'Pendapat Maret',
-            'Pengeluaran Maret',
-            'Pendapat April',
-            'Pengeluaran April',
+            'Pendapat Jan',
+            'Pengeluaran Jan',
+            'Pendapat Feb',
+            'Pengeluaran Feb',
+            'Pendapat Mar',
+            'Pengeluaran Mar',
+            'Pendapat Apr',
+            'Pengeluaran Apr',
             'Pendapat Mai',
             'Pengeluaran Mai',
-            'Pendapat Juni',
-            'Pengeluaran Juni',
-            'Pendapat Juli',
-            'Pengeluaran Juli',
-            'Pendapat Agustus',
-            'Pengeluaran Agustus',
-            'Pendapat September',
-            'Pengeluaran September',
-            'Pendapat Oktober',
-            'Pengeluaran Oktober',
-            'Pendapat November',
-            'Pengeluaran November',
-            'Pendapat Desember',
-            'Pengeluaran Desember',
+            'Pendapat Jun',
+            'Pengeluaran Jun',
+            'Pendapat Jul',
+            'Pengeluaran Jul',
+            'Pendapat Ags',
+            'Pengeluaran Ags',
+            'Pendapat Sep',
+            'Pengeluaran Sep',
+            'Pendapat Okt',
+            'Pengeluaran Okt',
+            'Pendapat Nov',
+            'Pengeluaran Nov',
+            'Pendapat Des',
+            'Pengeluaran Des',
         ];
 
         const data = {

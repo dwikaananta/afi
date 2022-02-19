@@ -80,7 +80,7 @@ Route::middleware('is_login')->group(function() {
             'total_tanaman' => Tanaman::where('status', null)->sum('stok'),
             'total_penjualan' => $total_penjualan,
             'total_pengadaan' => $total_pengadaan,
-            'total_reject' => Reject::where('status', '!=', 9)->sum('qty'),
+            'total_reject' => Reject::where('status', null)->sum('qty'),
             'Pendapat_Januari' => Penjualan::where('status', null)->whereYear('tgl_penjualan', $_GET['tahun'])->whereMonth('tgl_penjualan', 1)->sum('total'),
             'Pengeluaran_Januari' => Pengadaan::where('status', null)->whereYear('tgl_pengadaan', $_GET['tahun'])->whereMonth('tgl_pengadaan', 1)->sum('total'),
             'Pendapat_Februari' => Penjualan::where('status', null)->whereYear('tgl_penjualan', $_GET['tahun'])->whereMonth('tgl_penjualan', 2)->sum('total'),
