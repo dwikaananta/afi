@@ -10,11 +10,6 @@
     @endphp
     <div class="container">
         <div class="border border-dark py-3">
-            <div class="text-center">
-                <h5>ALAM BUNGA BALI</h5>
-                <h5>Jl. BY PASS NGURAH RAI TOHPATI, DENPASAR</h5>
-                <h5>NO. TELP. 081232999000</h5>
-            </div>
 
             <div class="row">
                 <div class="col-3 ps-5">
@@ -33,7 +28,7 @@
                     Nota Penjualan
                 </div>
                 <div class="col-9">
-                    : {{ $penjualan->kode_penjualan }}
+                    : {{ $penjualan->nota_penjualan }}
                 </div>
                 <div class="col-3 ps-5">
                     Nama
@@ -52,27 +47,25 @@
             <div class="my-4 border-bottom border-dark"></div>
 
             @if ($penjualan->detail_penjualan)
-                <table class="w-100">
-                    @foreach ($penjualan->detail_penjualan as $dp)
-                        <tr>
-                            <td class="ps-3">
-                                @php
-                                    if ($dp->tanaman) {
-                                        $nama = explode('||', $dp->tanaman->nama);
-                                        if (count($nama) == 2) {
-                                            echo $nama[0] . '<br /> (' . $nama[1] . ')';
-                                        } else {
-                                            echo $dp->tanaman->nama;
-                                        }
+                @foreach ($penjualan->detail_penjualan as $dp)
+                    <div class="row">
+                        <div class="col-3 ps-4">
+                            @php
+                                if ($dp->tanaman) {
+                                    $nama = explode('||', $dp->tanaman->nama);
+                                    if (count($nama) == 2) {
+                                        echo $nama[0] . '<br /> (' . $nama[1] . ')';
+                                    } else {
+                                        echo $dp->tanaman->nama;
                                     }
-                                @endphp
-                            </td>
-                            <td class="text-center">{{ $dp->qty }} PCS</td>
-                            <td class="text-center">{{ rupiah($dp->harga_jual) }}</td>
-                            <td class="text-end pe-3">{{ rupiah($dp->qty * $dp->harga_jual) }}</td>
-                        </tr>
-                    @endforeach
-                </table>
+                                }
+                            @endphp
+                        </div>
+                        <div class="col-3 text-center">{{ $dp->qty }} PCS</div>
+                        <div class="col-3 text-center">{{ rupiah($dp->harga_jual) }}</div>
+                        <div class="col-3 text-end pe-4">{{ rupiah($dp->qty * $dp->harga_jual) }}</div>
+                    </div>
+                @endforeach
             @endif
 
             <div class="my-4 border-bottom border-dark"></div>

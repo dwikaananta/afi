@@ -33,34 +33,32 @@
                     Nota Pengadaan
                 </div>
                 <div class="col-9">
-                    : {{ $pengadaan->kode_pengadaan }}
+                    : {{ $pengadaan->nota_pengadaan }}
                 </div>
             </div>
 
             <div class="my-4 border-bottom border-dark"></div>
 
             @if ($pengadaan->detail_pengadaan)
-                <table class="w-100">
-                    @foreach ($pengadaan->detail_pengadaan as $dp)
-                        <tr>
-                            <td class="ps-3">
-                                @php
-                                    if ($dp->tanaman) {
-                                        $nama = explode('||', $dp->tanaman->nama);
-                                        if (count($nama) == 2) {
-                                            echo $nama[0] . '<br /> (' . $nama[1] . ')';
-                                        } else {
-                                            echo $dp->tanaman->nama;
-                                        }
+                @foreach ($pengadaan->detail_pengadaan as $dp)
+                    <div class="row">
+                        <div class="col-3 ps-3">
+                            @php
+                                if ($dp->tanaman) {
+                                    $nama = explode('||', $dp->tanaman->nama);
+                                    if (count($nama) == 2) {
+                                        echo $nama[0] . '<br /> (' . $nama[1] . ')';
+                                    } else {
+                                        echo $dp->tanaman->nama;
                                     }
-                                @endphp
-                            </td>
-                            <td class="text-center">{{ $dp->qty }} PCS</td>
-                            <td class="text-center">{{ rupiah($dp->harga_beli) }}</td>
-                            <td class="text-end pe-3">{{ rupiah($dp->qty * $dp->harga_beli) }}</td>
-                        </tr>
-                    @endforeach
-                </table>
+                                }
+                            @endphp
+                        </div>
+                        <div class="col-3 text-center">{{ $dp->qty }} PCS</div>
+                        <div class="col-3 text-center">{{ rupiah($dp->harga_beli) }}</div>
+                        <div class="col-3 text-end pe-3">{{ rupiah($dp->qty * $dp->harga_beli) }}</div>
+                    </div>
+                @endforeach
             @endif
 
             <div class="my-4 border-bottom border-dark"></div>

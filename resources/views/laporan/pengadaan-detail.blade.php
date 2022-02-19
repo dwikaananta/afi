@@ -37,7 +37,7 @@
                     Nota Pengadaan
                 </div>
                 <div class="col-9">
-                    : {{ $pengadaan->kode_pengadaan }}
+                    : {{ $pengadaan->nota_pengadaan }}
                 </div>
             </div>
 

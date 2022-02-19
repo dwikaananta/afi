@@ -37,7 +37,7 @@
                     Kode Penjualan
                 </div>
                 <div class="col-9">
-                    : {{ $penjualan->kode_penjualan }}
+                    : {{ $penjualan->nota_penjualan }}
                 </div>
                 <div class="col-3 ps-5">
                     Nama
