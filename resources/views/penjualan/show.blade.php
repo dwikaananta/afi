@@ -12,31 +12,31 @@
         <div class="border border-dark py-3">
 
             <div class="row">
-                <div class="col-3 ps-5">
+                <div class="col-3 ps-4">
                     User
                 </div>
                 <div class="col-9">
                     : {{ $penjualan->user ? $penjualan->user->nama : '' }}
                 </div>
-                <div class="col-3 ps-5">
+                <div class="col-3 ps-4">
                     Tgl Penjualan
                 </div>
                 <div class="col-9">
                     : {{ date('d-m-Y', strtotime($penjualan->tgl_penjualan)) }}
                 </div>
-                <div class="col-3 ps-5">
+                <div class="col-3 ps-4">
                     Nota Penjualan
                 </div>
                 <div class="col-9">
                     : {{ $penjualan->nota_penjualan }}
                 </div>
-                <div class="col-3 ps-5">
+                <div class="col-3 ps-4">
                     Nama
                 </div>
                 <div class="col-9">
                     : {{ $penjualan->nama }}
                 </div>
-                <div class="col-3 ps-5">
+                <div class="col-3 ps-4">
                     No Tlp
                 </div>
                 <div class="col-9">

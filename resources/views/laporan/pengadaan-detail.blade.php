@@ -55,16 +55,14 @@
             @endphp
 
             @if ($pengadaan->detail_pengadaan)
-                <table class="w-100">
-                    @foreach ($pengadaan->detail_pengadaan as $dp)
-                        <tr>
-                            <td class="ps-3">{{ $dp->tanaman ? getDetail($dp->tanaman->nama) : '' }}</td>
-                            <td class="text-center">{{ $dp->qty }} PCS</td>
-                            <td class="text-center">{{ rupiah($dp->harga_beli) }}</td>
-                            <td class="text-end pe-3">{{ rupiah($dp->qty * $dp->harga_beli) }}</td>
-                        </tr>
-                    @endforeach
-                </table>
+                @foreach ($pengadaan->detail_pengadaan as $dp)
+                    <div class="row">
+                        <div class="col ps-4">{{ $dp->tanaman ? getDetail($dp->tanaman->nama) : '' }}</div>
+                        <div class="col text-center">{{ $dp->qty }} PCS</div>
+                        <div class="col text-center">{{ rupiah($dp->harga_beli) }}</div>
+                        <div class="col text-end pe-4">{{ rupiah($dp->qty * $dp->harga_beli) }}</div>
+                    </div>
+                @endforeach
             @endif
 
             <div class="my-4 border-bottom border-dark"></div>

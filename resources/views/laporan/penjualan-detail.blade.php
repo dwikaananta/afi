@@ -21,31 +21,31 @@
             </div>
 
             <div class="row">
-                <div class="col-3 ps-5">
+                <div class="col-3 ps-4">
                     User
                 </div>
                 <div class="col-9">
                     : {{ $penjualan->user ? $penjualan->user->nama : '' }}
                 </div>
-                <div class="col-3 ps-5">
+                <div class="col-3 ps-4">
                     Tgl Penjualan
                 </div>
                 <div class="col-9">
                     : {{ date('d-m-Y', strtotime($penjualan->tgl_penjualan)) }}
                 </div>
-                <div class="col-3 ps-5">
+                <div class="col-3 ps-4">
                     Kode Penjualan
                 </div>
                 <div class="col-9">
                     : {{ $penjualan->nota_penjualan }}
                 </div>
-                <div class="col-3 ps-5">
+                <div class="col-3 ps-4">
                     Nama
                 </div>
                 <div class="col-9">
                     : {{ $penjualan->nama }}
                 </div>
-                <div class="col-3 ps-5">
+                <div class="col-3 ps-4">
                     No Tlp
                 </div>
                 <div class="col-9">
@@ -67,16 +67,14 @@
             @endphp
 
             @if ($penjualan->detail_penjualan)
-                <table class="w-100">
-                    @foreach ($penjualan->detail_penjualan as $dp)
-                        <tr>
-                            <td class="ps-3">{{ $dp->tanaman ? getDetail($dp->tanaman->nama) : '' }}</td>
-                            <td class="text-center">{{ $dp->qty }} PCS</td>
-                            <td class="text-center">{{ rupiah($dp->harga_jual) }}</td>
-                            <td class="text-end pe-3">{{ rupiah($dp->qty * $dp->harga_jual) }}</td>
-                        </tr>
-                    @endforeach
-                </table>
+                @foreach ($penjualan->detail_penjualan as $dp)
+                    <div class="row">
+                        <div class="col ps-4">{{ $dp->tanaman ? getDetail($dp->tanaman->nama) : '' }}</div>
+                        <div class="col text-center">{{ $dp->qty }} PCS</div>
+                        <div class="col text-center">{{ rupiah($dp->harga_jual) }}</div>
+                        <div class="col text-end pe-4">{{ rupiah($dp->qty * $dp->harga_jual) }}</div>
+                    </div>
+                @endforeach
             @endif
 
             <div class="my-4 border-bottom border-dark"></div>

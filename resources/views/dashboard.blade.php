@@ -5,7 +5,7 @@
 @section('content')
     <x-alert />
 
-    <div class="row">
+    <div class="row mb-4">
         <div class="col-3 text-center text-white p-3">
             <div class="bg-warning p-3">
                 <p class="m-0">Total Stock</p>
@@ -84,36 +84,36 @@
 @section('js')
     <script>
         const labels = [
-            'Pendapat Jan',
+            'Pendapatan Jan',
             'Pengeluaran Jan',
-            'Pendapat Feb',
+            'Pendapatan Feb',
             'Pengeluaran Feb',
-            'Pendapat Mar',
+            'Pendapatan Mar',
             'Pengeluaran Mar',
-            'Pendapat Apr',
+            'Pendapatan Apr',
             'Pengeluaran Apr',
-            'Pendapat Mai',
-            'Pengeluaran Mai',
-            'Pendapat Jun',
+            'Pendapatan Mei',
+            'Pengeluaran Mei',
+            'Pendapatan Jun',
             'Pengeluaran Jun',
-            'Pendapat Jul',
+            'Pendapatan Jul',
             'Pengeluaran Jul',
-            'Pendapat Ags',
+            'Pendapatan Ags',
             'Pengeluaran Ags',
-            'Pendapat Sep',
+            'Pendapatan Sep',
             'Pengeluaran Sep',
-            'Pendapat Okt',
+            'Pendapatan Okt',
             'Pengeluaran Okt',
-            'Pendapat Nov',
+            'Pendapatan Nov',
             'Pengeluaran Nov',
-            'Pendapat Des',
+            'Pendapatan Des',
             'Pengeluaran Des',
         ];
 
         const data = {
             labels: labels,
             datasets: [{
-                label: "Data Tahun {{ $_GET['tahun'] }}",
+                label: "",
                 data: [
                     '{{ $Pendapat_Januari }}',
                     '{{ $Pengeluaran_Januari }}',

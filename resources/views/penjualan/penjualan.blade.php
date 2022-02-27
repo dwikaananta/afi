@@ -35,7 +35,7 @@
                         <td class="text-center">{{ $p->tgl_penjualan }}</td>
                         <td class="text-center">{{ $p->nota_penjualan }}</td>
                         <td>{{ $p->nama }}</td>
-                        <td>{{ $p->no_tlp }}</td>
+                        <td class="text-center">{{ $p->no_tlp }}</td>
                         <td class="text-end">{{ rupiah($p->total) }}</td>
                         <td>
                             @if ($p->status == 9)

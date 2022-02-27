@@ -9,40 +9,40 @@ function rupiah($angka)
 function getBulan($no)
 {
     if ($no == 1) {
-        return 'Jan';
+        return 'Januari';
     }
     if ($no == 2) {
-        return 'Feb';
+        return 'Februari';
     }
     if ($no == 3) {
-        return 'Mar';
+        return 'Maret';
     }
     if ($no == 4) {
-        return 'Apr';
+        return 'April';
     }
     if ($no == 5) {
         return 'Mei';
     }
     if ($no == 6) {
-        return 'Jun';
+        return 'Juni';
     }
     if ($no == 7) {
-        return 'Jul';
+        return 'Juli';
     }
     if ($no == 8) {
-        return 'Agt';
+        return 'Agustus';
     }
     if ($no == 9) {
-        return 'Sep';
+        return 'September';
     }
     if ($no == 1) {
-        return 'Okt';
+        return 'Oktober';
     }
     if ($no == 11) {
-        return 'Nov';
+        return 'November';
     }
     if ($no == 12) {
-        return 'Des';
+        return 'Desember';
     }
 }
 @endphp

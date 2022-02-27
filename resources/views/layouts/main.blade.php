@@ -121,19 +121,16 @@
         @auth
             <div class="bg-success bg-primary-2">
                 <div class="container">
-                    <div class="text-end row d-flex justify-content-end">
-                        <div class="col">
-                            <div class="text-center my-3 d-flex justify-content-center">
+                    <div class="row">
+                        <div class="col d-flex align-items-end justify-content-start">
+                            <div class="my-3 d-flex">
                                 <img src="/logo.png" class="img-fluid" style="width: 15%" alt="">
                                 <h2 class="mt-5 text-nowrap">Aplikasi Manajemen Stok Tanaman</h2>
                             </div>
                         </div>
-                        {{-- <div class="col d-flex justify-content-end align-items-center text-white rounded pt-5 pe-4">
-                            <div class="flex-shrink-0">
-                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQeLJOzTAW4sn22WgYxepEVozqjZWtyqLGJPQ&usqp=CAU" class="img-fluid rounded-circle border border-white border-3 me-2" style="width: 35px; height: 35px;" alt="">
-                            </div>
-                            {{ auth()->user()->nama }}
-                        </div> --}}
+                        <div class="col d-flex align-items-end justify-content-end pb-3">
+                            <h6>{{ auth()->user()->nama }}</h6>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -176,6 +173,7 @@
                                 <ul class="dropdown-menu" aria-labelledby="laporan">
                                     <li><a class="dropdown-item" href="/laporan-pengadaan">Laporan Pengadaan</a></li>
                                     <li><a class="dropdown-item" href="/laporan-penjualan">Laporan Penjualan</a></li>
+                                    <li><a class="dropdown-item" href="/laporan-reject">Laporan Reject</a></li>
                                 </ul>
                             </li>
                         @endif

@@ -6,7 +6,7 @@
     <x-alert />
     <div class="row justify-content-end">
         <div class="col-6 d-flex align-items-end">
-            <form action="" class="mb-3 w-100 d-flex" method="GET">
+            {{-- <form action="" class="mb-3 w-100 d-flex" method="GET">
                 <select class="form-select" name="bulan">
                     <option value="">Pilih Bulan</option>
                     <option value="1" @if(isset($_GET['bulan']) && $_GET['bulan'] == 1) selected @endisset>Jan</option>
@@ -31,7 +31,7 @@
                 </select>
         
                 <button class="btn btn-sm btn-info text-white">Search</button>
-            </form>
+            </form> --}}
         </div>
         <div class="col-6 text-end">
             <div class="col">
@@ -71,8 +71,8 @@
                                 }
                             @endphp
                         </td>
-                        <td>{{ $r->qty }}</td>
-                        <td>{{ $r->tgl_reject ? date('d-m-Y', strtotime($r->tgl_reject)) : '' }}</td>
+                        <td class="text-center">{{ $r->qty }}</td>
+                        <td class="text-center">{{ $r->tgl_reject ? date('d-m-Y', strtotime($r->tgl_reject)) : '' }}</td>
                         <td class="text-end">{{ rupiah($r->total) }}</td>
                         <td>
                             @if ($r->status == 9)

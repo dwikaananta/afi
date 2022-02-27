@@ -53,7 +53,7 @@ Route::post('/auth', function(Request $req) {
 Route::middleware('is_login')->group(function() {
 
     Route::get('/dashboard', function(Request $req) {
-        $penjualan = Penjualan::where('status', null)->get();
+        $penjualan = Penjualan::whereNull('status')->get();
 
         $total_penjualan = 0;
         foreach ($penjualan as $p) {
@@ -63,7 +63,7 @@ Route::middleware('is_login')->group(function() {
                 }
             }
         }
-        $pengadaan = Pengadaan::where('status', null)->get();
+        $pengadaan = Pengadaan::whereNull('status')->get();
 
         $total_pengadaan = 0;
         foreach ($pengadaan as $p) {
@@ -80,7 +80,7 @@ Route::middleware('is_login')->group(function() {
             'total_tanaman' => Tanaman::where('status', null)->sum('stok'),
             'total_penjualan' => $total_penjualan,
             'total_pengadaan' => $total_pengadaan,
-            'total_reject' => Reject::where('status', null)->sum('qty'),
+            'total_reject' => Reject::whereNull('status')->sum('qty'),
             'Pendapat_Januari' => Penjualan::where('status', null)->whereYear('tgl_penjualan', $_GET['tahun'])->whereMonth('tgl_penjualan', 1)->sum('total'),
             'Pengeluaran_Januari' => Pengadaan::where('status', null)->whereYear('tgl_pengadaan', $_GET['tahun'])->whereMonth('tgl_pengadaan', 1)->sum('total'),
             'Pendapat_Februari' => Penjualan::where('status', null)->whereYear('tgl_penjualan', $_GET['tahun'])->whereMonth('tgl_penjualan', 2)->sum('total'),
@@ -187,6 +187,14 @@ Route::middleware('is_login')->group(function() {
             ->when($req->tahun, fn($query) => $query->whereYear('tgl_reject', $req->tahun))
             ->latest()->get();
         return view('laporan.reject', [
+            'title' => 'Laporan Reject',
+            'reject' => $reject,
+        ]);
+    });
+
+    Route::get('/reject-detail/{id}', function($id, Request $req) {
+        $reject = Reject::with('tanaman')->find($id);
+        return view('laporan.reject-detail', [
             'reject' => $reject,
         ]);
     });
@@ -208,6 +216,16 @@ Route::middleware('is_login')->group(function() {
             ->latest()->get();
         return view('laporan.penjualan-print', [
             'penjualan' => $penjualan,
+        ]);
+    });
+
+    Route::get('/laporan-reject-print', function(Request $req) {
+        $reject = Reject::with('tanaman')
+            ->when($req->bulan, fn($query) => $query->whereMonth('tgl_reject', $req->bulan))
+            ->when($req->tahun, fn($query) => $query->whereYear('tgl_reject', $req->tahun))
+            ->latest()->get();
+        return view('laporan.reject-print', [
+            'reject' => $reject,
         ]);
     });
 

@@ -42,7 +42,7 @@
             @if ($pengadaan->detail_pengadaan)
                 @foreach ($pengadaan->detail_pengadaan as $dp)
                     <div class="row">
-                        <div class="col-3 ps-3">
+                        <div class="col-3 ps-4">
                             @php
                                 if ($dp->tanaman) {
                                     $nama = explode('||', $dp->tanaman->nama);
@@ -56,7 +56,7 @@
                         </div>
                         <div class="col-3 text-center">{{ $dp->qty }} PCS</div>
                         <div class="col-3 text-center">{{ rupiah($dp->harga_beli) }}</div>
-                        <div class="col-3 text-end pe-3">{{ rupiah($dp->qty * $dp->harga_beli) }}</div>
+                        <div class="col-3 text-end pe-4">{{ rupiah($dp->qty * $dp->harga_beli) }}</div>
                     </div>
                 @endforeach
             @endif

@@ -27,7 +27,7 @@
             <div class="col-6">
                 <x-input label="Qty" name="qty" type="number" />
             </div>
-            <div class="col-6">
+            <div class="col-12">
                 <x-input label="Tgl Reject" name="tgl_reject" type="date" />
             </div>
         </div>
