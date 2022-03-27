@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\DetailPengadaan;
 use App\Models\Pengadaan;
 use App\Models\Supplier;
 use App\Models\Tanaman;
 use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
 class PengadaanController extends Controller
 {
@@ -100,6 +100,22 @@ class PengadaanController extends Controller
         // 9 tidak aktif && null aktif
 
         $pengadaan->update(['status' => $req->actived ? null : 9]);
+
+        if ($req->actived) {
+            // aktifkan
+            $detail_pengadaan = DetailPengadaan::with('tanaman')->where('pengadaan_id', $pengadaan->id)->get();
+
+            foreach ($detail_pengadaan as $dp) {
+                $dp->tanaman()->update(['stok' => $dp->tanaman->stok + $dp->qty]);
+            }
+        } else {
+            // nonaktifkan
+            $detail_pengadaan = DetailPengadaan::with('tanaman')->where('pengadaan_id', $pengadaan->id)->get();
+
+            foreach ($detail_pengadaan as $dp) {
+                $dp->tanaman()->update(['stok' => $dp->tanaman->stok - $dp->qty]);
+            }
+        }
 
         return back()->with('success', 'Berhasil update status Pengadaan !');
     }

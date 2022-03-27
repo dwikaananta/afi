@@ -82,7 +82,7 @@ class RejectController extends Controller
         $data = [
             'tanaman_id' => $req->tanaman_id,
             'qty' => $req->qty,
-            'total' => $tanaman->harga_jual * $req->qty,
+            'total' => $tanaman->harga_beli * $req->qty,
             'tgl_reject' => $req->tgl_reject,
         ];
 
@@ -96,6 +96,16 @@ class RejectController extends Controller
         // 9 tidak aktif && null aktif
 
         $reject->update(['status' => $req->actived ? null : 9]);
+
+        if ($req->actived) {
+            // aktifkan
+            $tanaman = Tanaman::find($reject->tanaman_id);
+            $tanaman->update(['stok' => $tanaman->stok - $reject->qty]);
+        } else {
+            // nonaktifkan
+            $tanaman = Tanaman::find($reject->tanaman_id);
+            $tanaman->update(['stok' => $tanaman->stok + $reject->qty]);
+        }
 
         return back()->with('success', 'Berhasil update status Reject !');
     }

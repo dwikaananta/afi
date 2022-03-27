@@ -146,6 +146,12 @@ class TanamanController extends Controller
 
         $tanaman->update($data);
 
+        if ($req->harga_beli) {
+            LogHarga::where('tanaman_id', $tanaman->id)->latest()->first()->update([
+                'harga_beli' => $req->harga_beli,
+            ]);
+        }
+
         return redirect('/tanaman')->with('success', 'Berhasil ubah Data Tanaman !');
     }
 

@@ -35,12 +35,9 @@
     <div class="text-center">
         <h3>Grafik Pengeluaran & Pendapatan {{ $_GET['tahun'] }}</h3>
         <select name="" id="" onchange="window.location = this.value">
-            <option value="/dashboard?tahun=2021" @if ($_GET['tahun'] == '2021')
-                selected @endisset>2021</option>
-            <option value="/dashboard?tahun=2022" @if ($_GET['tahun'] == '2022')
-                selected @endisset>2022</option>
-            <option value="/dashboard?tahun=2023" @if ($_GET['tahun'] == '2023')
-                selected @endisset>2023</option>
+            <option value="/dashboard?tahun=2022" @if ($_GET['tahun'] == '2022') selected @endisset>2022</option>
+            <option value="/dashboard?tahun=2023" @if ($_GET['tahun'] == '2023') selected @endisset>2023</option>
+            <option value="/dashboard?tahun=2024" @if ($_GET['tahun'] == '2024') selected @endisset>2024</option>
         </select>
     </div>
 
@@ -63,7 +60,7 @@
                 <canvas id="myPie"></canvas>
             </div>
         </div> --}}
-    
+
         {{-- <div class="col-6">
             <div class="text-center">
                 <h3>Top 10 Tanaman Paling Laris {{ $_GET['tahun'] }}</h3>
@@ -173,15 +170,16 @@
             datasets: [{
                 label: 'My First Dataset',
                 data: [
-                    {{ $pie_2 }}, {{ $pie_3 }}, {{ $pie_4 }}, {{ $pie_5 }}, {{ $pie_6 }}, {{ $pie_7 }}
+                    {{ $pie_2 }}, {{ $pie_3 }}, {{ $pie_4 }}, {{ $pie_5 }},
+                    {{ $pie_6 }}, {{ $pie_7 }}
                 ],
                 backgroundColor: [
-                'rgb(255, 99, 132)',
-                'rgb(100, 99, 132)',
-                'rgb(54, 162, 235)',
-                'rgb(100, 162, 235)',
-                'rgb(255, 205, 86)',
-                'rgb(100, 205, 86)',
+                    'rgb(255, 99, 132)',
+                    'rgb(100, 99, 132)',
+                    'rgb(54, 162, 235)',
+                    'rgb(100, 162, 235)',
+                    'rgb(255, 205, 86)',
+                    'rgb(100, 205, 86)',
                 ],
                 hoverOffset: 4
             }]

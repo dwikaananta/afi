@@ -185,7 +185,7 @@ Route::middleware('is_login')->group(function() {
         $reject = Reject::with('tanaman')
             ->when($req->bulan, fn($query) => $query->whereMonth('tgl_reject', $req->bulan))
             ->when($req->tahun, fn($query) => $query->whereYear('tgl_reject', $req->tahun))
-            ->latest()->get();
+            ->get();
         return view('laporan.reject', [
             'title' => 'Laporan Reject',
             'reject' => $reject,
@@ -203,7 +203,7 @@ Route::middleware('is_login')->group(function() {
         $pengadaan = Pengadaan::with('user', 'supplier', 'detail_pengadaan')
             ->when($req->bulan, fn($query) => $query->whereMonth('tgl_pengadaan', $req->bulan))
             ->when($req->tahun, fn($query) => $query->whereYear('tgl_pengadaan', $req->tahun))
-            ->latest()->get();
+            ->get();
         return view('laporan.pengadaan-print', [
             'pengadaan' => $pengadaan,
         ]);
@@ -213,7 +213,7 @@ Route::middleware('is_login')->group(function() {
         $penjualan = Penjualan::with('user', 'detail_penjualan')
             ->when($req->bulan, fn($query) => $query->whereMonth('tgl_penjualan', $req->bulan))
             ->when($req->tahun, fn($query) => $query->whereYear('tgl_penjualan', $req->tahun))
-            ->latest()->get();
+            ->get();
         return view('laporan.penjualan-print', [
             'penjualan' => $penjualan,
         ]);
@@ -223,7 +223,7 @@ Route::middleware('is_login')->group(function() {
         $reject = Reject::with('tanaman')
             ->when($req->bulan, fn($query) => $query->whereMonth('tgl_reject', $req->bulan))
             ->when($req->tahun, fn($query) => $query->whereYear('tgl_reject', $req->tahun))
-            ->latest()->get();
+            ->get();
         return view('laporan.reject-print', [
             'reject' => $reject,
         ]);

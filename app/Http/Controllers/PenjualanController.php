@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\DetailPenjualan;
 use App\Models\Penjualan;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -97,6 +98,22 @@ class PenjualanController extends Controller
         // 9 tidak aktif && null aktif
 
         $penjualan->update(['status' => $req->actived ? null : 9]);
+
+        if ($req->actived) {
+            // aktifkan
+            $detail_pengadaan = DetailPenjualan::with('tanaman')->where('penjualan_id', $penjualan->id)->get();
+
+            foreach ($detail_pengadaan as $dp) {
+                $dp->tanaman()->update(['stok' => $dp->tanaman->stok - $dp->qty]);
+            }
+        } else {
+            // nonaktifkan
+            $detail_pengadaan = DetailPenjualan::with('tanaman')->where('penjualan_id', $penjualan->id)->get();
+
+            foreach ($detail_pengadaan as $dp) {
+                $dp->tanaman()->update(['stok' => $dp->tanaman->stok + $dp->qty]);
+            }
+        }
 
         return back()->with('success', 'Berhasil update status Penjualan !');
     }

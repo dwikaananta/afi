@@ -17,9 +17,9 @@
 
     <select class="form-select me-3" name="tahun">
         <option value="">Pilih Tahun</option>
-        <option value="2020" @if(isset($_GET['tahun']) && $_GET['tahun'] == 2020) selected @endif>2020</option>
-        <option value="2021" @if(isset($_GET['tahun']) && $_GET['tahun'] == 2021) selected @endif>2021</option>
         <option value="2022" @if(isset($_GET['tahun']) && $_GET['tahun'] == 2022) selected @endif>2022</option>
+        <option value="2023" @if(isset($_GET['tahun']) && $_GET['tahun'] == 2023) selected @endif>2023</option>
+        <option value="2024" @if(isset($_GET['tahun']) && $_GET['tahun'] == 2024) selected @endif>2024</option>
     </select>
 
     <button class="btn btn-sm btn-info text-white">Pilih</button>
