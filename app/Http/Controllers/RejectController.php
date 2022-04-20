@@ -79,6 +79,10 @@ class RejectController extends Controller
 
         $tanaman = Tanaman::find($req->tanaman_id);
 
+        $tanaman->update([
+            'stok' => $tanaman->stok + $reject->qty - $req->qty,
+        ]);
+
         $data = [
             'tanaman_id' => $req->tanaman_id,
             'qty' => $req->qty,

@@ -124,7 +124,7 @@
                     <div class="row">
                         <div class="col d-flex align-items-end justify-content-start">
                             <div class="my-3 d-flex">
-                                <img src="/logo.png" class="img-fluid" style="width: 15%" alt="">
+                                <img src="/logo1.png" class="img-fluid" style="width: 15%" alt="">
                                 <h2 class="mt-5 text-nowrap">Aplikasi Manajemen Stok Tanaman</h2>
                             </div>
                         </div>
