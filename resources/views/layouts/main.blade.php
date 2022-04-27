@@ -129,7 +129,7 @@
                                 <h2 class="mt-5 text-nowrap mb-4">Aplikasi Manajemen Stok Tanaman (AMST)</h2>
                             </div>
                         </div>
-                        <div class="col d-flex align-items-end justify-content-end pb-4">
+                        <div class="col d-flex align-items-end justify-content-end">
                             <h6>{{ auth()->user()->nama }}</h6>
                         </div>
                     </div>
