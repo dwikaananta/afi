@@ -42,8 +42,8 @@
     </div>
 
     <div class="row my-3 px-4">
-        <div class="py-3 text-white col-6 text-center" style="background-color: rgba(75, 192, 192, 0.7)">Pendapatan</div>
-        <div class="py-3 col-6 text-center" style="background-color: rgba(75, 192, 192, 0.2)">Pengeluaran</div>
+        <div class="py-3 text-white col-6 text-center" style="background-color: #FFFFCC">Pendapatan</div>
+        <div class="py-3 col-6 text-center" style="background-color: #FFCCCC">Pengeluaran</div>
     </div>
 
     <div class="mb-4">
@@ -138,10 +138,10 @@
                     '{{ $Pengeluaran_Desember }}',
                 ],
                 backgroundColor: [
-                    'rgba(75, 192, 192, 0.7)',
-                    'rgba(75, 192, 192, 0.2)',
+                    '#FFFFCC',
+                    '#FFCCCC',
                 ],
-                borderColor: 'rgba(75, 255, 230, 1)',
+                borderColor: '#CCCCCC',
                 borderWidth: 1,
             }]
         };
