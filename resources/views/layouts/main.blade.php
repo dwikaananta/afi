@@ -124,7 +124,7 @@
                     <div class="row">
                         <div class="col d-flex align-items-end justify-content-start">
                             <div class="my-3 d-flex">
-                                <img src="/logo1.png" class="img-fluid" style="width: 25%" alt="">
+                                <img src="/logo1.png" class="img-fluid" style="width: 20%" alt="">
                                 <div class="px-3"></div>
                                 <h2 class="mt-5 text-nowrap mb-4">Aplikasi Manajemen Stok Tanaman (AMST)</h2>
                             </div>
