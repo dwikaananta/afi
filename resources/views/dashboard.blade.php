@@ -42,7 +42,7 @@
     </div>
 
     <div class="row my-3 px-4">
-        <div class="py-3 text-white col-6 text-center" style="background-color: #FFFFCC">Pendapatan</div>
+        <div class="py-3 col-6 text-center" style="background-color: #FFFFCC">Pendapatan</div>
         <div class="py-3 col-6 text-center" style="background-color: #FFCCCC">Pengeluaran</div>
     </div>
 
