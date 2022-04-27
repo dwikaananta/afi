@@ -125,7 +125,8 @@
                         <div class="col d-flex align-items-end justify-content-start">
                             <div class="my-3 d-flex">
                                 <img src="/logo1.png" class="img-fluid" style="width: 15%" alt="">
-                                <h2 class="ml-5 mt-5 text-nowrap">Aplikasi Manajemen Stok Tanaman (AMST)</h2>
+                                <div class="px-3"></div>
+                                <h2 class="mt-5 text-nowrap">Aplikasi Manajemen Stok Tanaman (AMST)</h2>
                             </div>
                         </div>
                         <div class="col d-flex align-items-end justify-content-end pb-4">
