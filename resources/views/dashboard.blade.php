@@ -13,7 +13,7 @@
             </div>
         </div>
         <div class="col-3 text-center text-white p-3">
-            <div class="bg-primary p-3">
+            <div class="p-3" style="background-color: #b0d8d1 !important">
                 <p class="m-0">Total Pengadaan</p>
                 <h3 class="m-0">{{ $total_pengadaan }}</h3>
             </div>
@@ -33,7 +33,7 @@
     </div>
 
     <div class="text-center">
-        <h3>Grafik Pengeluaran & Pendapatan {{ $_GET['tahun'] }}</h3>
+        <h3>Grafik Pendapatan & Pengeluaran Tahun {{ $_GET['tahun'] }}</h3>
         <select name="" id="" onchange="window.location = this.value">
             <option value="/dashboard?tahun=2022" @if ($_GET['tahun'] == '2022') selected @endisset>2022</option>
             <option value="/dashboard?tahun=2023" @if ($_GET['tahun'] == '2023') selected @endisset>2023</option>
@@ -110,7 +110,7 @@
         const data = {
             labels: labels,
             datasets: [{
-                label: "",
+                label: "Data Grafik Pendapatan & Pengeluaran pada Tahun {{ $_GET['tahun'] }}",
                 data: [
                     '{{ $Pendapat_Januari }}',
                     '{{ $Pengeluaran_Januari }}',

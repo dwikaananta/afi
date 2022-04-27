@@ -60,22 +60,22 @@
         } */
 
         /* warning */
-        /* .btn-warning {
+        .btn-warning {
             color: #000;
-            background-color: #ffc107;
-            border-color: #ffc107;
+            background-color: #ffca2c;
+            border-color: #ffca2c;
         }
 
         .btn-warning:hover {
             color: #000;
-            background-color: #ffca2c;
-            border-color: #ffc720;
-        } */
+            background-color: #ffb007;
+            border-color: #ffb007;
+        }
 
         /* custom */
 
         .bg-primary-2 {
-            background-color: #afe618 !important;
+            background-color: #98FB98 !important;
         }
 
         .btn-primary {
@@ -125,7 +125,7 @@
                         <div class="col d-flex align-items-end justify-content-start">
                             <div class="my-3 d-flex">
                                 <img src="/logo1.png" class="img-fluid" style="width: 15%" alt="">
-                                <h2 class="mt-5 text-nowrap">Aplikasi Manajemen Stok Tanaman</h2>
+                                <h2 class="mt-5 text-nowrap">Aplikasi Manajemen Stok Tanaman (AMST)</h2>
                             </div>
                         </div>
                         <div class="col d-flex align-items-end justify-content-end pb-3">
